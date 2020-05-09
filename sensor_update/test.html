@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <!--<script src="js/first_sensor_update.js"></script>-->
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/sensor.js"></script>
+    <script src="js/sensor_update.js"></script>
+    <style>
+        .container {
+            width: 85%;
+            height: 300px;
+
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+
+        $(function () {
+            $("#btn_start").click(function () {
+                // initSensor();
+                sensor_update.start();
+            });
+
+            $("#btn_stop").click(function () {
+                //destroySensor();
+                sensor_update.destroySensor();
+            });
+            $("#btn_get_version").click(function () {
+                var version = sensor_update.getChromeVersion();
+                console.log("version = " + version);
+            });
+
+
+            $("#btn_start_old").click(function () {
+                sensor.initSensor();
+                sensor.start();
+            });
+
+            $("#btn_stop_old").click(function () {
+                sensor.destroySensor();
+            });
+            console.log("页面加载完成!!!");
+            alert("页面加载完成");
+        });
+
+
+    </script>
+    <style>
+
+        input {
+            width: 150px;
+            height: 60px;
+            font-size: 25px;
+
+        }
+    </style>
+
+
+</head>
+<div class="container">
+    <h2>DeviceMotion&OrientMotion和Generic Sensor Api Test Demo</h2>
+    <h2>ios13以上请使用test_ios.html</h2>
+    <h2>先点击开始采集，等待一秒钟，点击停止采集即可看到采集到的传感器信息</h2>
+    <body>
+
+    <input type="button" value="开始采集" id="btn_start">
+
+    <input type="button" value="停止采集" id="btn_stop">
+    <br/><br/><br/>
+
+
+    <hr/>
+    <input type="button" value="开始采集_老" id="btn_start_old"/>
+    <input type="button" value="停止采集_老" id="btn_stop_old"/>
+
+
+    <input type="button" value="Chrome版本" id="btn_get_version"/>
+</div>
+</body>
+</html>

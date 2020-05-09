@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/sensor.js"></script>
+    <script src="js/sensor_update.js"></script>
+
+    <title>
+        motion orientation access
+    </title>
+    <script type="text/javascript">
+
+    </script>
+
+    <script>
+        // 判断是否是 ios 设备
+        function getIos() {
+            var u = window.navigator.userAgent;
+            return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        }
+
+        function requestPermissionsIOS() {
+            requestDeviceMotionIOS();
+            requestDeviceOrientationIOS();
+        }
+
+        function requestDeviceMotionIOS() {
+
+            if (typeof(DeviceMotionEvent).requestPermission === 'function') {
+                (DeviceMotionEvent).requestPermission().then(permissionState => {
+
+                    if (permissionState === 'granted') {
+                        window.addEventListener('devicemotion', () => {
+
+                        });
+                    }
+                }).catch((err) => {
+                    alert(JSON.stringify(err));
+                    alert("用户未允许权限");
+                })
+            } else {
+                // handle regular non iOS 13+ devices
+            }
+        }
+
+        // requesting device orientation permission
+        function requestDeviceOrientationIOS() {
+
+            if (typeof(DeviceOrientationEvent).requestPermission === 'function') {
+                (DeviceOrientationEvent).requestPermission().then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener('deviceorientation', () => {
+
+                        });
+                    }
+                }).catch((err) => {
+                    alert(JSON.stringify(err));
+                    alert("用户未允许权限");
+                })
+            } else {
+                // handle regular non iOS 13+ devices
+            }
+        }
+
+        function testClick() {
+            requestPermissionsIOS();
+        }
+
+
+        $(function () {
+            $("#btn_start").click(function () {
+                // initSensor();
+                sensor_update.start();
+            });
+
+            $("#btn_stop").click(function () {
+                //destroySensor();
+                sensor_update.destroySensor();
+            });
+            $("#btn_get_version").click(function () {
+                var version = sensor_update.getChromeVersion();
+                console.log("version = " + version);
+            });
+
+
+            $("#btn_start_old").click(function () {
+                sensor.initSensor();
+                sensor.start();
+            });
+
+            $("#btn_stop_old").click(function () {
+                sensor.destroySensor();
+            });
+            console.log("页面加载完成!!!");
+            alert("页面加载完成");
+        });
+    </script>
+
+
+</head>
+<body>
+<button onclick="testClick()">
+    deviceorientation
+</button>
+<input type="button" value="开始采集" id="btn_start">
+<br/><br/><br/>
+<input type="button" value="停止采集" id="btn_stop">
+<br/><br/><br/>
+
+
+<hr/>
+<input type="button" value="开始采集_老" id="btn_start_old"/>
+<input type="button" value="停止采集_老" id="btn_stop_old"/>
+
+
+<input type="button" value="Chrome版本" id="btn_get_version"/>
+</body>
+
+</html>
