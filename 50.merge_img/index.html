@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <style>
+        .title {
+            width: 85%;
+            height: 40px;
+            /*background-color: #f00;*/
+            margin: 0 auto;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .content {
+            width: 60%;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            /*margin-left: 400px;*/
+            background-color: #f00;
+        }
+
+        .content img {
+            float: left;
+            position: absolute;
+            left: 50%;
+            margin-left: -150px;
+            top: 50%;
+            margin-top: -100px;
+            display: block;
+            width: 300px;
+            height: 200px;
+            background-color: #0f0;
+        }
+
+        .bottom {
+            width: 85%;
+            height: 40px;
+            margin: 0 auto;
+            /*background-color: #00f;*/
+        }
+
+    </style>
+
+    <script>
+
+
+        function merage2() {
+
+
+            var canvas = document.createElement("canvas");
+            //var canvas = $("#canvasT")[0];
+            canvas.width = 300;
+            canvas.height = 200;
+            var context = canvas.getContext("2d");
+            context.rect(0, 0, canvas.width, canvas.height);
+            context.fillStyle = "#fff";
+            context.fill();
+            var imgage = new Image();
+            //imgage.src = "img/demo_modify.png";
+            imgage.src = "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet?param=point_canvas_lump";
+            //发请求获取
+          /*  $.ajax({
+                type: 'get',
+                url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
+                data: {
+                    param: "point_canvas_lump"
+                },
+                timeout: 5000,
+                success: function (res) {
+                    alert("res = " + res);
+                    imgage.src = res;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("获取参数信息失败");
+                }
+            });*/
+
+
+            imgage.onload = function () {
+                console.log("图片宽度：" + imgage.width + "    图片高度" + imgage.height);
+
+
+                context.drawImage(imgage, 0, 0, 179, 97, 0, 0, 179, 97);
+                context.drawImage(imgage, 278, 0, 125, 119, 180, 0, 125, 119);
+                var base64 = canvas.toDataURL("image/png"); //"image/png" 这里注意一下
+                var img = document.getElementById('avatar');
+
+                img.setAttribute('src', base64);
+            };
+
+
+            context.drawImage(imgage, 0, 0, 150, 200);
+            var base64 = canvas.toDataURL("image/png"); //"image/png" 这里注意一下
+            var img = document.getElementById('avatar');
+
+            img.setAttribute('src', base64);
+
+
+        }
+
+
+        $(function () {
+
+            $("#btn_merge").click(function () {
+                merage2()
+            });
+
+            $("#btn_get_params").click(function () {
+                //先请求解析参数
+                $.ajax({
+                    type: 'get',
+                    url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
+                    data: {
+                        param: "point_canvas_params"
+                    },
+                    timeout: 5000,
+                    success: function (res) {
+                        alert("获取参数信息成功 ： " + res.split("||")[0].length);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("获取参数信息失败");
+                    }
+                });
+            });
+
+
+        });
+    </script>
+
+
+</head>
+<body>
+<div class="title">图片合成Demo</div>
+<div class="content">
+    <img src="" id="avatar"/>
+    <canvas id="canvasT" width="400" height="300"></canvas>
+</div>
+
+
+<div class="bottom">
+    <button id="btn_get_params">获取请求参数</button>
+    <button id="btn_merge">合成</button>
+
+
+    <!--<button id="btn_merge">合成</button>-->
+
+    <!--<button id="btn_merge_3">从网络合成图片</button>-->
+
+</div>
+
+</body>
+</html>

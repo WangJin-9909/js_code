@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("input").eq(0).click(function () {
+                /**
+                 * 参数1:url,可以将url参数方到参数2得对象里面
+                 * 参数2：请求其他参数得对象
+                 * type:请求类型
+                 * success：请求成功得返回
+                 */
+                $.ajax({
+                    url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
+                    type: "POST",
+                    //传递到服务器得请求参数
+                    data: {
+                        param: "abcdef"
+                    },
+                    success: function (res) {
+                        //res：请求得响应体
+                        alert("请求成功 res = " + res);
+                    }
+                });
+            });
+            $("input").eq(1).click(function () {
+                /**
+                 * 参数1:url,可以将url参数方到参数2得对象里面
+                 * 参数2：请求其他参数得对象
+                 * type:请求类型
+                 * success：请求成功得返回
+                 */
+                $.ajax({
+                    url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
+                    type: "POST",
+                    //设置响应体类型，json得话jQ自动解析,会忽略服务端得Content-Type
+                    dataType: "json",
+                    success: function (res) {
+                        //res：请求得响应体
+                        alert("请求成功 res = " + res);
+                    },
+                    error: function (xhr) {
+                        alert("请求失败");
+                    },
+                    complete: function () {
+                        //请求完成，包含：success  +   error
+                    },
+                    beforeSend: function () {
+                        //发送请求之前，在所有aJax请求操作(open、send)之前
+                    }
+
+
+                });
+            });
+            $("input").eq(2).click(function () {
+                alert("webdriver = " + window.navigator.webdriver);
+            });
+
+
+            $("input").eq(3).click(function () {
+                $.ajax({
+                    url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
+                    type: "GET",
+                    /*dataType: "json",*/
+                    //传递到服务器得请求参数
+                    data: {
+                        param: "point_canvas_lump"
+                    },
+                    success: function (res) {
+                        //res：请求得响应体
+                        alert("请求成功 res = " + res);
+                    }
+                });
+
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+<input type="button" value="发起POST请求"/>
+<input type="button" value="发起POST请求"/>
+<input type="button" value="获取webdriver"/>
+<input type="button" value="point_canvas_lump"/>
+</body>
+</html>

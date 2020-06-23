@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01.Vue初体验</title>
+</head>
+<body>
+<div id="app">{{message}}</div>
+<div id="app_1"></div>
+<script src="../js/vue.js"></script>
+<script>
+    /**
+     * let: es6里定义变量
+     * const：es6里面定义常量
+     */
+    //1.创建Vue对象
+    const app = new Vue({
+        el: '#app',//挂载要管理得元素
+        data:{//定义数据
+            message: 'Hello World'
+        }
+    })
+</script>
+</body>
+</html>

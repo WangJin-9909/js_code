@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+
+    <style>
+        p {
+            background-color: pink;
+            size: 20px;
+        }
+    </style>
+    <script>
+
+        function sendGET(url) {
+            //1.创建aJax对象
+            var xhr = new XMLHttpRequest();
+            //2.打开网址
+            xhr.open("GET", url);
+            //3.发送请求
+            xhr.send();
+            //4.监听请求变化
+            var data;
+            xhr.onreadystatechange = function (ev) {
+                if (this.readyState == 4) {
+                    data = JSON.parse(this.responseText);
+                    console.log("data = " + data);
+                    //alert("老师微信 = " + data.老师微信);
+                    //alert("错误信息 = " + data.错误信息);
+                    //alert("最新动态 = " + data.最新动态);
+                    $("p").eq(0).text(data.老师微信);
+                    $("p").eq(1).text(data.错误信息);
+                    $("p").eq(2).text(data.最新动态);
+                }
+            };
+
+        }
+
+        function sendPOST() {
+
+            //1.创建XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+            //2.打开请求
+            xhr.open("POST", "http://192.168.0.100:8080/TestHttpProtocolNew/TestServlet");
+
+            //3.发送请求
+            //设置urlEncoded请求头
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            //发送请求
+            xhr.send("param=12345678");
+            //4.监听请求变化
+            xhr.onreadystatechange = function (ev) {
+                if (this.readyState == 4) {
+                    var data = JSON.parse(this.responseText);
+                    alert("data = " + data.name);
+                }
+            };
+
+        }
+
+        /**
+         * 测试方法，不常用
+         * @param url
+         */
+        function sendRequest(url) {
+            //1.创建aJax请求对象
+            var xhr = new XMLHttpRequest();
+            //2.打开网址
+            xhr.open("GET", url);
+            //设置请求头
+            //  xhr.setRequestHeader("请求头key", "    请求头value");
+            //3.发送请求
+            xhr.send("key1=value1&key2=value2");
+            //4.注册事件
+            xhr.onreadystatechange = function (ev) {
+                /**
+                 * this.readyState:取值
+                 * 0：初始化请求代理对象
+                 * 1：open()方法已经调用，建立一个与服务端特定端口的连接
+                 * 2：已经接收到响应报文的响应头,还未获得响应体
+                 * 3：正在下载响应体,不完整的响应体
+                 * 4：响应体请求到了
+                 */
+                switch (this.readyState) {
+                    case 2:
+                        //获取响应头
+                        console.log(this.getAllResponseHeaders());
+                        break;
+                    case 3:
+                        //正在下载响应体
+                        break;
+                    case 4:
+                        //获得响应体
+                        //console.log("响应体 ： " + this.responseText);
+                        //解析JSON
+                        var data = JSON.parse(this.responseText);
+                        alert("basePath = " + data.basePath);
+                        alert("host = " + data.host);
+                        alert("swagger = " + data.swagger);
+                        alert("version = " + data.info.version);
+                        alert("title = " + data.info.title);
+                        alert("description = " + data.info.description);
+
+                        break;
+                }
+            };
+        }
+
+        $(function () {
+            $("input").eq(0).click(function () {
+                sendRequest("https://api.it120.cc/v2/api-docs?group=%E5%89%8D%E7%AB%AFapi%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3");
+            });
+            $("input").eq(1).click(function () {
+                sendGET("http://123.207.32.32:8000/home/data?type=sell&page=1");
+                // sendGET("http://123.207.32.32:8000/home/data?type=sell&page=1");
+
+            });
+            $("input").eq(2).click(function () {
+                sendPOST();
+            });
+        });
+
+
+    </script>
+
+
+</head>
+<body>
+老师微信：<p></p><br/>
+错误信息:<p></p><br>
+最新动态:<p></p><br/>
+<input type="button" value="发送GET请求_1"/>
+<input type="button" value="发送GET请求_2"/>
+<input type="button" value="本地POST请求_1"/>
+
+</body>
+</html>

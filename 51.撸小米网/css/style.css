@@ -1,0 +1,270 @@
+body {
+    font-size: 12px;
+    color: #333;
+}
+
+.container {
+    width: 1206px;
+    margin: 0 auto;
+    padding: 0px;
+    /*background-color: #ff0000;*/
+}
+
+/*顶部代码*/
+.page-top {
+    height: 38px;
+    background-color: #333333;
+}
+
+.page-top .top-lt {
+    color: #a2a2a2;
+    line-height: 38px;
+    float: left;
+}
+
+.page-top .top-lt a:hover {
+    color: #fff
+}
+
+.page-top .top-lt span {
+    color: #3f3f3f;
+    padding: 0 3px; /*上下0，左右3px*/
+}
+
+.page-top .top-lt .download {
+    position: relative;
+}
+
+.page-top .top-lt .download .down-box {
+    position: absolute;
+    width: 125px;
+    height: 150px;
+    /*background-color: #f00;*/
+    top: 27px;
+    left: 50%;
+    margin-left: -62px;
+    padding-top: 20px;
+
+}
+
+.page-top .top-lt .download .down-box {
+    display: none;
+}
+
+.page-top .top-lt .download:hover .down-box {
+    display: block;
+    box-shadow: rgb(170, 170, 170) 0px 1px 5px;
+}
+
+.page-top .top-lt .download .down-box img {
+    display: block;
+    width: 86px;
+    height: 86px;
+    margin: 0 auto;
+}
+
+.page-top .top-lt .download .down-box i {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-style: normal;
+    color: #000;
+    font-size: 14px;
+}
+
+.page-top .top-lt .download .down-box b {
+    width: 20px;
+    height: 10px;
+    position: absolute;
+    background-image: url("../img/sjx.png");
+    top: -10px;
+    left: 50%;
+    margin-left: -10px;
+
+}
+
+.page-top .container .top-gt {
+    /*width: 300px;*/
+    float: right;
+}
+
+/*未登录的情况*/
+.page-top .container .top-gt .login {
+    color: #a2a2a2;
+    line-height: 38px;
+    float: right;
+    margin-right: 20px;
+}
+
+.page-top .container .top-gt .login span {
+    color: #3f3f3f;
+    padding: 0 3px; /*上下0，左右3px*/
+
+}
+
+/*未登录的情况结束*/
+/*登录的情况*/
+.page-top .container .top-gt .userinfo {
+    float: left;
+    margin-right: 20px;
+
+}
+
+.page-top .container .top-gt .userinfo .user {
+    /*background-color: #f00;*/
+    display: inline-block;
+    width: 120px;
+    position: relative;
+    height: 38px;
+}
+
+.page-top .container .top-gt .userinfo .user:hover ul {
+    display: block;
+}
+
+.page-top .container .top-gt .userinfo .user .tit {
+    display: block;
+    text-align: center;
+    color: #a2a2a2;
+    line-height: 38px;
+}
+
+.page-top .container .top-gt .userinfo .user .tit:hover ul {
+    display: block;
+}
+
+.page-top .container .top-gt .userinfo .user ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 26px;
+    /*background-color: #00f;*/
+    width: 120px;
+    padding: 10px 0; /*上下10px、左右未0px*/
+    box-shadow: rgb(170, 170, 170) 0px 1px 5px;
+}
+
+.page-top .container .top-gt .userinfo .user ul li {
+    line-height: 30px;
+    color: #000;
+    text-align: center;
+}
+
+.page-top .container .top-gt .userinfo .user ul li a {
+    display: block;
+}
+
+.page-top .container .top-gt .userinfo .user ul li:hover {
+    color: #ff6700;
+    background-color: #f5f5f5;
+}
+
+.page-top .container .top-gt .userinfo .link {
+    line-height: 38px;
+    color: #a2a2a2;
+}
+
+.page-top .container .top-gt .userinfo span {
+    padding: 0 3px;
+    color: #3f3f3f;
+}
+
+/*登录的情况结束*/
+
+/*购物车*/
+.page-top .container .top-gt .car-box {
+    background-color: #424242;
+    float: right;
+    position: relative;
+}
+
+.icon-gouwuche {
+    font-size: 32px;
+    color: #f00;
+}
+
+.page-top .container .car-box .tit {
+    display: block;
+    width: 118px;
+    height: 38px;
+    background-color: #424242;
+    text-align: center;
+    line-height: 38px;
+}
+
+.page-top .container .car-box:hover .pop {
+    display: block;
+}
+
+.page-top .container .car-box .pop {
+    display: none;
+    position: absolute;
+    width: 316px;
+    /*height: 180px;*/
+    top: 38px;
+    right: 0px;
+    /*background-color: #0f0;*/
+    padding: 50px 0; /*上下50px、左右为0*/
+    text-align: center;
+    vertical-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.page-nav {
+    height: 96px;
+    /*background-color: #f00;*/
+}
+
+/*导航开始*/
+.page-nav .container .logo {
+    display: block;
+    width: 55px;
+    height: 55px;
+    margin-top: 20px;
+    float: left;
+}
+
+/*.page-nav .container .logo img {
+    display: block;
+    width: 55px;
+    height: 55px;
+}*/
+
+.page-nav .container .nav {
+    background-color: #eee;
+    /*width: 900px;*/
+    height: 55px;
+    float: left;
+    margin: 0px;
+}
+
+.page-nav .container .nav {
+    /*display: block;*/
+    margin-top: 20px;
+}
+
+.page-nav .container .nav li {
+    /*display: inline-block;*/
+    float: left;
+    margin-right: 20px;
+    line-height: 55px;
+
+    color: #666;
+    font-size: 18px;
+
+}
+
+.page-nav .container .nav li:hover {
+    color: #FF6700;
+}
+
+
+
+
+
+.page-nav .container .search {
+    width: 100px;
+    height: 55px;
+    background-color: #ddd;
+    float: right;
+}

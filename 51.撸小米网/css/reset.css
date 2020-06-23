@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+address, cite, dfn, em, var {
+    font-style: normal;
+}
+
+code, kbd, pre, samp {
+    font-family: "Courier New";
+}
+
+small {
+    font-size: 12px;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /*设置继承父节点颜色*/
+
+}
+
+a:hover {
+    /*text-decoration: underline;*/
+}
+
+sup {
+    vertical-align: text-top;
+}
