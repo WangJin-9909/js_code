@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.js"></script>
+
+
+    <script>
+        $(function () {
+            $("#btn_split").click(function () {
+
+                var str = "12345||34324||abadfs";
+                alert(str.split("||"));
+                alert(str.split("||")[0]);
+                alert(str.split("||")[1]);
+                alert(str.split("||")[2]);
+
+            });
+        });
+
+    </script>
+    <style>
+        .container{
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <input type="button" value="split方法" id="btn_split"/>
+</div>
+
+</body>
+</html>

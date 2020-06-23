@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+
+        $(function () {
+            //添加到元素的最后面
+            $("div").append("$(p)");
+            //添加到元素的最前面
+            $("div").prepend("$(p)");
+            //----------------------------------
+            //使用子元素添加到父元素
+            $("p").appendTo($("div"));
+            $("p").prependTo($("div"));
+
+            //after、before添加元素的方式
+            $("div").after($("p"));
+            $("div").before($("p"));
+
+        });
+    </script>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+
+</head>
+<body>
+<div id="box">
+    div默认存在的内容
+</div>
+<p>P标签</p>
+</body>
+</html>

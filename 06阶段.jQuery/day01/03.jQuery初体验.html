@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        //jQuery入口函数的第一种写法
+        $(function () {
+            console.log("jQuery入口函数的第一种写法");
+            //获取元素并注册事件
+            $("#btn1").click(function () {
+                console.log("btn1 的事件响应");
+                //设置元素显示
+                $("div").show();
+            });
+
+            $("#  btn2").click(function () {
+
+                    //设置显示内容
+                    $("div").text("设置的内容");
+
+            });
+        });
+        //入口函数的第二种写法
+        $(document).ready(function () {
+            console.log("jQuery入口函数的第二种写法");
+        });
+    </script>
+    <style>
+        div {
+            height: 20px;
+            margin-bottom: 10px;
+            background: #4ed;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" value="展示" id="btn1"/>
+<input type="button" value="设置内容" id="btn2"/>
+<div></div>
+<div></div>
+<div></div>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div { /*标签选择器优先级：*/
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+            margin-bottom: 20px;
+        }
+
+        .xionger { /*类选择器优先级：*/
+            background-color: pink;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>两个盒子之间的margin以大盒子的margin为准：不是两个盒子之间的margin之和</h2>
+<div class="xiongda"></div>
+<div class="xionger"></div>
+
+</body>
+</html>

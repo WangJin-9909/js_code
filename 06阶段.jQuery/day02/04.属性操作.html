@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("#btn_set_img").click(function () {
+                //设置单个属性
+                $("img").attr("src", "../images/2.jpg");
+                $("img").attr("alt", "身份证正面");
+
+            });
+
+            $("#btn_set_img2").click(function () {
+                //批量设置属性
+                $("img").attr({
+                    alt:"身份证反面",
+                    src:"../images/1.jpg"
+                });
+
+                // $("img").attr("src", "../images/1.jpg");
+                // $("img").attr("alt", "身份证反面");
+            });
+            //获取属性
+            $("#btn_get_alt").click(function () {
+                alert("alt = " + $("img").attr("alt"));
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+<img src="../images/1.jpg" alt="身份证反面" title="身份证反面" width="640" height="360"><br/>
+<input type="button" value="设置img属性  正面" id="btn_set_img"/>
+<input type="button" value="设置img属性  反面" id="btn_set_img2"/>
+<input type="button" value="获取alt" id="btn_get_alt">
+
+</body>
+</html>

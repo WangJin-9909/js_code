@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Person(name, age, sex){
+            this.name = name;
+            this.age = age;
+            this.xex = sex;
+            this.eat = function () {
+              alert("对象的eat()方法");
+            };
+        }
+
+        //创建对象
+        var per = new Person("小苏", 36, "女");
+        //per.eat();
+
+        console.log("-----------");
+        console.dir(per);
+        console.log("--------------");
+        console.log(Person);
+        console.log("per对象的构造器： " + per.constructor);
+        //判断对象类型
+        alert("per对象是Person的实例嘛？" + (per.constructor == Person));
+        alert("per是Person类型嘛"  + (per instanceof Person));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

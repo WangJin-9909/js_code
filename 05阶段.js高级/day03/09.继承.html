@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Animal(name, weight) {
+            this.name = name;
+            this.weight = weight;
+        }
+
+        Animal.prototype.eat = function () {
+            console.log("eat()  in  Animal...");
+        };
+
+        //---------------------
+        function Dog(color) {
+            this.color = color;
+        }
+
+        Dog.prototype = new Animal("dog_name", "dog_weight");
+        Dog.bite = function () {
+            console.log("bite()  in  Dog");
+        };
+
+        //----------------------
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+
+</body>
+</html>

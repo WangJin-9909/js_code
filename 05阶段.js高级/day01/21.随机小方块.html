@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            background-color: #CCCCCC;
+            position: relative;
+        }
+    </style>
+    <script src="../js/common.js"></script>
+    <script>
+        window.onload = function () {
+
+            //产生随机数
+            (function (window) {
+                function Random() {
+
+                }
+
+                Random.prototype.getRandom = function (min, max) {
+                    return Math.floor(Math.random() * (max - min) + min);
+                };
+                window.Random = new Random;
+            })(window);
+
+
+            //产生小方块
+            (function (window) {
+                //通过选择器的方式创建对象
+                var map = document.querySelector(".map");
+
+                //食物的构造函数
+                function Food(width, height, color) {
+                    this.width = width || 20;
+                    this.height = height || 20;
+                    //横纵坐标随机生成
+                    this.x = 0;
+                    this.y = 0;
+                    this.color = color;
+                    this.element = document.createElement("div");//创建的div元素
+                }
+
+                Food.prototype.init = function (map) {
+                    //设置小方块儿的样式
+                    var div = this.element;
+                    div.style.position = "absolute";
+                    div.style.width = this.width + "px";
+                    div.style.height = this.height +  "px";
+                    div.style.backgroundColor = this.color;
+                    //把小方块儿放到div中
+                    map.appendChild(div);
+                    this.render(map);
+
+                };
+
+                Food.prototype.render = function (map) {
+                    var x = Random.getRandom(0, map.offsetWidth / this.width) * this.width;
+                    var y = Random.getRandom(0, map.offsetHeight / this.height) * this.height;
+
+                    this.x = x;
+                    this.y = y;
+                    console.log("     render"  + ("x = " + this.x) + " y  = " + this.y );
+                    var div = this.element;
+                    div.style.left=this.x+"px";
+                    div.style.top=this.y+"px";
+                };
+
+                var fd = new Food(20, 20, "green");
+                fd.init(map);
+            })(window);
+
+
+        };
+
+
+    </script>
+
+
+</head>
+<body>
+<div class="map"></div>
+</body>
+</html>

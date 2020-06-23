@@ -1,0 +1,10 @@
+body{
+    background-color: beige;
+}
+/*margin:0  auto表示上下0，中间对齐*/
+header{
+    width: 1300px;
+    height: 100px;
+    background-color: pink;
+    margin: 0 auto;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .basic {
+            background-color: #44eedd;
+        }
+
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+
+
+        $(function () {
+            $("#btn_add").click(function () {
+                //添加class样式
+                $("#txt3").addClass("basic");
+            });
+            $("#btn_remove").click(function () {
+                //删除div上的basic样式
+                $("#txt3").removeClass("basic");
+            });
+
+            $("#btn_has").click(function () {
+                alert("basic样式存在？ " + $("#txt3").hasClass("basic"));
+            });
+            $("#btn_toggle").click(function () {
+               //等同于先判断有没有，再设置类style
+                $("#txt3").toggleClass("basic");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+<h3 id="txt3">This is a Text</h3>
+
+<input type="button" value="添加basic样式" id="btn_add">
+<input type="button" value="移除basic样式" id="btn_remove">
+<input type="button" value="判断basic样式存在？" id="btn_has">
+<input type="button" value="切换" id="btn_toggle">
+
+</body>
+</html>

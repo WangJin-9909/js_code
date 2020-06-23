@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * 创建对象的三种方式：
+         * 1.  字面量方式
+         * 2.  调用系统构造函数
+         * 3.  自定义构造函数方式
+         */
+
+            //1.字面量方式定义对象
+        var per1 = {
+                name: "wangJin",
+                age: 19,
+                sex: "男",
+                eat: function () {
+                    alert("字面量方式实现创建对象的eat()方法" + this.name);
+                }
+            };
+        //调用对象
+        per1.eat();
+
+        //2.调用系统构造函数方式
+        var per2 = new Object();
+        per2.name = "张三";
+        per2.age = 30;
+        per2.eat = function () {
+            alert("使用系统构造函数方式创建的对象实现的eat()方法" + this.name);
+        };
+        //调用对象
+        per2.eat();
+
+        //3.自定义构造函数方式
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.eat = function () {
+                alert("使用自定义构造函数的方式创建对象");
+            };
+        }
+
+        //创建对象
+        var per3 = new Person("李四", 19, "女");
+        per3.eat();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

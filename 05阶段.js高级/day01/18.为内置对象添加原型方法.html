@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = [1, 2, 3];
+        //为内置对象添加原型方法
+        Array.prototype.wangjin = function () {
+            alert(this.length);
+        };
+
+
+        arr.wangjin();
+        new Date().getFullYear();
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                $("div").animate({left: 800}, function () {
+
+                    //$("div").animate({top:800})
+                }).animate({top: 400}).animate({width: 800}).animate({left: 0}).animate({width: 100});
+            });
+        });
+    </script>
+
+</head>
+<body>
+<h1>stop()函数可以停止当前动画，当要执行下一个动画的时候，当前动画还没结束，可以使用stop()函数停止当前动画</h1>
+<input type="button" value="按钮" id="btn"/>
+<div></div>
+
+</body>
+</html>

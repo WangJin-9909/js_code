@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+           //$("s1, s2")  并集选择器
+            //$("s1 s2)   后代选择器
+            //$("s1>s2")  子代选择器
+            //$("s1s2")   交集选择器
+           $("#father>p").css("background-color", "red");
+        });
+    </script>
+
+</head>
+<body>
+<div id="father">
+    <div>11</div>
+    <div>
+        22
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+    </div>
+    <div>33</div>
+    <div>44</div>
+    <div>55</div>
+    <p>66</p>
+    <p>77</p>
+    <p>88</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+        h1{
+            color: green;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("input").eq(0).click(function () {
+                /**
+                 * 参数1：对象
+                 * 参数2：时长
+                 * 参数3：动画效果：swing:缓速     linear:匀速
+                 * 参数4：动画结束回调
+                 */
+                $("div").animate({left: 800, top:800, width:400}, 1000, "linear",function () {
+                    alert("动画结束");
+                });
+                $("h1").animate({fontSize:90, color:pink});
+
+            });
+        });
+
+    </script>
+
+
+</head>
+<body>
+<h1>h1元素</h1>
+<input type="button" value="开始"/>
+<input type="button" value="结束"/>
+<div></div>
+
+</body>
+</html>

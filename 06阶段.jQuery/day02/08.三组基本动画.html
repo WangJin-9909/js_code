@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+
+    <script>
+        $(function () {
+            $("input").eq(0).click(function () {
+                //无参数：只显示，没有动画
+                //$("div").show()
+
+                //----------------------------------------------
+                //时长，动画持续的时间长度，透明度、尺寸渐变
+                //固定字符串，fast:200ms    normal:400ms   slow:600ms
+                //$("div").show(10000)
+                //-----------------------------------------------
+                //带有函数回调的显示
+                $("div").show(1000, function () {
+                    alert("动画执行结束");
+                })
+            });
+            //隐藏使用方式同显示
+            $("input").eq(1).click(function () {
+                $("div").hide(1000, function () {
+                    alert("动画执行结束");
+                });
+            });
+
+
+        });
+    </script>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+<input type="button" value="显示">
+<input type="button" value="隐藏">
+
+<div></div>
+
+</body>
+</html>

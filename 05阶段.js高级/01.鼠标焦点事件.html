@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var div = document.getElementById("test");
+            div.onfocus = function (ev) {
+                alert("dd");
+            };
+
+            var mouserOverTimeStamp;
+            var mouserDownTimeStamp;
+            $("#test").mouseover(function () {
+                console.log("鼠标移入");
+                mouserOverTimeStamp = new Date().getTime();
+                console.log("time = " + new Date().getTime());
+            });
+            $("#test").mousedown(function () {
+                console.log("鼠标按下");
+                mouserDownTimeStamp = new Date().getTime();
+                console.log("Time = " + new Date().getTime());
+                console.log("distance = " + mouserDownTimeStamp - mouserOverTimeStamp);
+            });
+
+            $("#test").mousemove(function () {
+                console.log("move..." + "x = " + new Date().getTime());
+            });
+            var arr = new Array();
+            for(var i = 0; i < 100; i++){
+                arr.push("name");
+            }
+
+
+        });
+    </script>
+
+</head>
+<body>
+
+<div id="test"></div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function (ev) {
+            var btn_show = document.getElementById("btn_show");
+            var btn_set = document.getElementById("btn_set");
+            var divs = document.getElementsByTagName("div");
+            btn_show.onclick = function (ev1) {
+                for(var i = 0; i < divs.length; i++){
+                    divs[i].style.display = "block";
+                }
+            };
+            btn_set.onclick = function (ev1) {
+                for (var i = 0 ; i < divs.length; i++){
+                    divs[i].innerHTML="<p>I am a  div</p>"
+
+                }
+            };
+
+        }
+
+    </script>
+    <style>
+        div{
+            height: 50px;
+            margin-bottom: 10px;
+            background-color: blueviolet;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" value="展示" id="btn_show"/>
+<input type="button" value="设置内容" id="btn_set">
+
+<div></div>
+<div></div>
+<div></div>
+
+</body>
+</html>

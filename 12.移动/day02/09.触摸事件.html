@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="../css/jquery-1.12.4.js"></script>
+    <script>
+        /**
+         * touchstart:
+         * touchmove:
+         * touchend:
+         * touchcancel:
+         *
+         */
+
+        window.onload = function (ev) {
+            $(".box")[0].addEventListener("touchstart", function (evnet) {
+               console.log("touchstart")
+            });
+            $(".box")[0].addEventListener("touchend", function (event) {
+                console.log("touchend")
+            });
+            $(".box")[0].addEventListener("touchmove", function (evnet) {
+                console.log("touchmove")
+            });
+            $(".box")[0].addEventListener("touchcancal", function (event) {
+                console.log("touchcancal")
+            });
+
+        };
+    </script>
+
+</head>
+<body>
+<div class="box"></div>
+
+</body>
+</html>

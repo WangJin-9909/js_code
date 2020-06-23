@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+           // addElement();
+            addElementByjQ();
+        });
+
+
+        /**
+         * 使用js创建节点
+         */
+        function addElement() {
+            var box = document.getElementById("box");
+            var a = document.createElement("a");
+            box.appendChild(a);
+            a.setAttribute("href", "https://www.baidu.com");
+            a.setAttribute("target", "_blank");
+            a.innerHTML="百度";
+
+
+        }
+
+        function addElementByjQ(){
+            //1.直接添加元素代码
+            $("#box").append("<a href='https://www.baidu.com' target='_blank'>百度</a>");
+            //2.先通过元素代码创建jQ对象，再进行添加
+            var $a = $("<a href='https://www.baidu.com' target='_blank'>百度</a>");
+            $("#box").append($a);
+        }
+    </script>
+
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="box"></div>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="css/jquery-1.12.4.js"></script>
+    <style>
+
+    </style>
+    <script>
+        $(function () {
+            $(".jd_nav input").eq(0).click(function () {
+                $(".jd_banner ul li").eq(0).css("left", "-720")
+                $(".jd_banner ul li").eq(1).css("left", "0")
+            });
+            $(".jd_nav input").eq(1).click(function () {
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div class="jd_container">
+    <!--顶部搜索-->
+    <header class="jd_search">
+        <div class="jd_search_box">
+            <a href="#" class="icon_logo"></a>
+            <form action="#">
+                <span class="icon_search"></span>
+                <input type="search" placeholder="占位符"/>
+            </form>
+            <a href="#" class="login">登录</a>
+        </div>
+
+    </header>
+    <!--轮播图-->
+    <div class="jd_banner">
+        <!--图片-->
+        <ul>
+            <li><a href="#"><img src="img/l8.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l2.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l3.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l4.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l5.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l6.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l7.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l8.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/l8.jpg" alt=""/></a></li>
+        </ul>
+        <!--指示器-->
+        <ul>
+            <li class="now"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!--导航栏-->
+    <div class="jd_nav clearFix">
+        <ul>
+            <li><a href="#"><img src="img/nav0.png" alt=""/>
+                <p>分类</p></a></li>
+            <li><a href="#"><img src="img/nav1.png" alt=""/>
+                <p>分类</p></a></li>
+            <li><a href="#"><img src="img/nav2.png" alt=""/>
+                <p>分类</p></a></li>
+            <li><a href="#"><img src="img/nav3.png" alt=""/>
+                <p>分类</p></a></li>
+            <li><a href="#"><img src="img/nav4.png" alt=""/>
+                <p>分类</p></a></li>
+            <li><a href="#"><img src="img/nav5.png" alt=""/>
+                <p>分类</p></a></li>
+            <li><a href="#"><img src="img/nav6.png" alt=""/>
+                <p>分类</p></a></li>
+            <li><a href="#"><img src="img/nav7.png" alt=""/>
+                <p>分类</p></a></li>
+        </ul>
+
+    </div>
+    <!--产品区块-->
+    <div class="jd_product">
+        <!--秒杀区块儿-->
+        <section class="jd_product_box sk">
+            <div class="tit nb">
+                <div class="f_left">
+                    <span class="icon"></span>
+                    <span class="name">掌上秒杀</span>
+                    <div class="time">
+                        <span>0</span>
+                        <span>0</span>
+                        :
+                        <!-- <span>:</span>-->
+                        <span>0</span>
+                        <span>0</span>
+                        <!--<span>:</span>-->
+                        :
+                        <span>0</span>
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="f_right"><a class="m_r10" href="#">更多&gt;</a></div>
+            </div>
+            <div class="con">
+                <ul class="pro">
+                    <li>
+                        <a href="#"><img src="img/detail01.jpg" alt=""/></a>
+                        <p class="nowPrice">&yen;10.00</p>
+                        <p class="oldPrice">&yen;19.9</p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/detail01.jpg" alt=""/></a>
+                        <p class="nowPrice">&yen;10.00</p>
+                        <p class="oldPrice">&yen;19.9</p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/detail01.jpg" alt=""/></a>
+                        <p class="nowPrice">&yen;10.00</p>
+                        <p class="oldPrice">&yen;19.9</p>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+        <section class="jd_product_box">
+            <div class="tit"><h3>京东超市</h3></div>
+            <div class="con">
+                <div class="con clearFix">
+                    <a class="w_50p f_left br" href="#"><img src="img/cp1.jpg" alt=""></a>
+                    <a class="w_50p f_right bb" href="#"><img src="img/cp2.jpg" alt=""></a>
+                    <a class="w_50p f_right" href="#"><img src="img/cp3.jpg" alt=""></a>
+                </div>
+            </div>
+        </section>
+        <section class="jd_product_box">
+            <div class="tit"><h3>京东自营</h3></div>
+            <div class="con  clearFix">
+                <a class="w_50p f_right bl" href="#"><img src="img/cp4.jpg" alt=""></a>
+                <a class="w_50p f_left bb" href="#"><img src="img/cp5.jpg" alt=""></a>
+                <a class="w_50p f_left" href="#"><img src="img/cp6.jpg" alt=""></a>
+            </div>
+        </section>
+        <section class="jd_product_box">
+            <div class="tit"><h3>京东热门</h3></div>
+            <div class="con  clearFix">
+                <a class="w_50p f_left br" href="#"><img src="img/cp1.jpg" alt=""></a>
+                <a class="w_50p f_right bb" href="#"><img src="img/cp2.jpg" alt=""></a>
+                <a class="w_50p f_right" href="#"><img src="img/cp3.jpg" alt=""></a>
+            </div>
+        </section>
+    </div>
+
+
+</div>
+</body>
+</html>

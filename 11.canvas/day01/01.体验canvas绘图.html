@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            /*不建议再style中设置尺寸*/
+        }
+    </style>
+
+    <script>
+        $(function () {
+            //1.获取元素
+            var myCanvas = $("canvas")[0];
+            //2.获取上下文，绘制工具箱
+            var ctx = myCanvas.getContext("2d");
+            //3.绘制一条直线
+            $("input").eq(0).click(function () {
+                ctx.moveTo(100, 100);//移动画笔，设置初始坐标
+                ctx.lineTo(200, 100);//设置移动距离，路径
+            //    描边
+                ctx.stroke();
+            });
+
+
+
+        });
+
+
+
+    </script>
+
+</head>
+<body>
+<input type="button" value="绘制一条直线">
+<br/>
+
+
+<!--1.准备画布,默认Canvas白色的，尺寸为300 x 150-->
+<canvas width="600" height="400"></canvas>
+<!--2.准备绘制工具-->
+<!--3.利用绘制工具画图-->
+</body>
+</html>

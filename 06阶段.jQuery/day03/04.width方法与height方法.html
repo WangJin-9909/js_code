@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var width = $("div").css("width");
+
+
+
+
+            $("input").eq(0).click(function () {
+                alert("通过width()方法直接获取 width : " +  $("div").width() );
+            });
+            $("input").eq(1).click(function () {
+                $("div").width(600);
+            });
+            $("input").eq(2).click(function () {
+                alert("通过css()方法获取width ： " + width);
+            });
+            
+            $("input").eq(3).click(function () {
+                $("div").css("width", "800px");
+            });
+            $("input").eq(4).click(function () {
+                alert("页面可视宽度 " + $(window).width());
+            });
+        });
+    </script>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>width()方法、innerWidth()方法、outerWidth()方法</h1>
+
+
+    <input type="button" value="width获取宽度">
+    <input type="button" value="width设置宽度">
+    <input type="button" value="css()方法获取宽度">
+    <input type="button" value="css()方法设置宽度">
+
+
+    <input type="button" value="获取页面可是区域宽度 "  >
+
+    <div></div>
+</body>
+</html>

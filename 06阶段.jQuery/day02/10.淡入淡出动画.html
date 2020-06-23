@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            /**
+             * 使用方式同show、hide一样，只是具有默认参数，具有默认的动画时长
+             */
+            //滑入 fadeIn
+            $("input").eq(0).click(function () {
+                $("div").fadeIn(1000, function () {
+                    alert("动画结束");
+                });
+            });
+            //滑出fadeOut
+            $("input").eq(1).click(function () {
+                $("div").fadeOut(1000, function () {
+                    alert("动画结束");
+                });
+            });
+            //切换
+            $("input").eq(2).click(function () {
+                $("div").fadeToggle(1000, function () {
+                    alert("动画结束");
+                });
+            });
+        });
+
+    </script>
+
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+<div></div>
+<input type="button" value="淡入">
+<input type="button" value="淡出">
+<input type="button" value="切换">
+
+</body>
+</html>

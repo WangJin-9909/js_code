@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+
+        div > ul {
+            margin: 0 auto;
+        }
+
+        div > ul > li {
+            list-style: none;
+        }
+
+        div > ul > li > div {
+            width: 100px;
+            height: 100px;
+            margin-left: 100px;
+            display: inline-block;
+            background-color: pink;
+            border-radius: 50%;
+        }
+    </style>
+    <script src="../js/jquery.min-1.12.4.js"></script>
+    <script>
+        var i = 0;
+        $(function () {
+
+            $("input").eq(0).click(function () {
+                if (i < 2 || i > 4) {
+                    return;
+                }
+                i++;
+                console.log("i = " + i);
+                $("div > ul > li > div ").css("border-radius", (i * 10) + "%");
+            });
+            $("input").eq(1).click(function () {
+                if (i < 2 || i > 4) {
+                    return;
+                }
+                i--;
+                console.log("i = " + i);
+                $("div > ul > li > div ").css("border-radius", (i * 10) + "%");
+            });
+        });
+    </script>
+
+</head>
+<body>
+<h3>取值类型</h3>
+<ul>
+    <li>px类型</li>
+    <li>百分数类型</li>
+</ul>
+<input type="button" value="增大"/>
+<input type="button" value="减小"/>
+
+<div>
+    <ul>
+        <li>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

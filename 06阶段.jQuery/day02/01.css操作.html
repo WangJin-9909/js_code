@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            /**
+             * 修改样式
+            //单步设置css属性
+           $("li").css("background-color", "red").css("color", "green");
+           //通过传递对象方式批量设置css属性
+            $("li").css({
+                backgroundColor: "green",
+                color:"red"
+            });
+
+            /**
+             * 获取样式
+             */
+            console.log("li.fongSize  = " + $("li").css("fontSize"));
+        });
+
+    </script>
+
+</head>
+<body>
+<ul>
+    <li>女星1</li>
+    <li>女星2</li>
+    <li>女星3</li>
+    <li>女星4</li>
+
+</ul>
+
+</body>
+</html>

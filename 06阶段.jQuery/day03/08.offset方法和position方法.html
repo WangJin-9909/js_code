@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            position: relative;
+            margin: 100px;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("input").eq(0).click(function () {
+
+                //offset方法用于获取相对于页面的位置
+                var left = $(".son").offset().left;
+                var top = $(".son").offset().top;
+                alert("获取相当于页面的宽" + left + " 高  " + top);
+
+                //position方法获取相对于有定位的父元素的位置
+                var left_1 = $(".son").position().left;
+                var top_1 = $(".son").position().top;
+                alert("获取相当于父元素的宽" + left + " 高  " + top);
+            });
+
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+<input type="button" value="获取位置信息">
+<div class="father">
+
+    <div class="son"></div>
+</div>
+
+</body>
+</html>

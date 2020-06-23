@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //清空指定div的内容
+            $("input").eq(0).click(function () {
+                //清空子节点
+                $("div").empty();
+                //---------------------------------
+                //全部删除，包括自己
+                //$("div").remove();
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+<input type="button" value="清空">
+    <div>
+        <p>111</p>
+        <p>222</p>
+    </div>
+</body>
+</html>

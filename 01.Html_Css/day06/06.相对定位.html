@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../js/jquery.min-1.12.4.js"></script>
+
+
+    <script>
+        var i = 0, j = 0;
+        $(function () {
+            $("input").eq(0).click(function () {
+                $("div").css("position", "relative").css("top", (i++) * 10);
+
+            });
+            $("input").eq(1).click(function () {
+                $("div").css("position", "relative").css("top", (i--) * 10);
+            });
+            $("input").eq(2).click(function () {
+                $("div").css("position", "relative").css("left", (j++) * 10);
+            });
+            $("input").eq(3).click(function () {
+                $("div").css("position", "relative").css("left", (j--) * 10);
+            });
+        });
+
+    </script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            float: left;
+            /*margin: 100px;*/
+        }
+    </style>
+
+</head>
+<body>
+<ol>
+    <li><h4>相对移动以自己初始化时候的左上角移动</h4></li>
+    <li><h4>定位移动保留原来的位置，不会改变文档流</h4></li>
+    <li><h4>和浮动无关哦</h4></li>
+</ol>
+
+<input type="button" value="向下"/>
+<input type="button" value="向上"/>
+<input type="button" value="向右"/>
+<input type="button" value="向左"/>
+
+<div></div>
+</body>
+</html>

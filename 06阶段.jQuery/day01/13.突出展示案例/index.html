@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        bady {
+            background: #000;
+        }
+
+        .wrap {
+            margin: 100px auto 0;
+            width: 630px;
+            height: 394px;
+            padding: 10px 0 0 10px;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+    </style>
+    <script src="../../js/jquery-1.12.4.js"></script>
+    <
+    <script>
+        $(function () {
+
+            $(".wrap>ul>li").mouseenter(function () {
+
+                $(this).css("opacity", "1").siblings().css("opacity", "0.4");
+            });
+
+            $(".wrap").mouseleave(function () {
+                //让所有的li都变亮
+                //$("li");
+                //$(".wrap li");
+                //$(".wrap>ul>li")
+
+                //$(this).children().children("li");
+                $(this).find('li').css("opacity", 1);
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Person(age) {
+            this.age = age;
+
+        }
+
+        Person.prototype.eat = function () {
+            alert("使用原型添加的eat方法,在Person中");
+        };
+
+        function Student() {
+        }
+
+        //更改原型的指向
+        Student.prototype = Person.prototype;
+        new Student().eat();
+
+
+        /**
+         * 如果原型指向改变了，那么就应该在原型改变指向之后再添加   原型方法
+         */
+
+    </script>
+    <script>
+        window.onload = function (ev) {
+            var dd = document.getElementById("dd");
+            console.dir(dd);
+            console.dir(HTMLDivElement);
+        };
+    </script>
+</head>
+<body>
+    <div id="dd"></div>
+</body>
+</html>
