@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app", /*表示要挂载管理的元素*/
+            data: {
+                counter: 0
+            },
+            method:{
+                test:function () {
+
+                }
+            },
+            //开始传入生命周期方法
+            beforeCreate(){
+                console.log("before create..........");
+            },
+            beforeMount(){
+                console.log("before mounted..........");
+            }
+        });
+        /*监听页面按钮*/
+
+    </script>
+</head>
+<body>
+    <h1>VUE的生命周期</h1>
+
+</body>
+</html>
