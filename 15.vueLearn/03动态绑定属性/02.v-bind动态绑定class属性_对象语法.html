@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active {
+            color: red;
+            border: 1px blue solid;
+        }
+
+        .no_active {
+            color: gray;
+            border: 1px red solid;
+        }
+        .title{
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+    <!--<h2 class="active">{{message}}</h2>-->
+    <!--使用v-bind指令给class绑定了对象-->
+    <!--只有值为true的情况下，class才会被绑定,将值放在vue实体对象中-->
+    <!--与之前的class不冲突-->
+    <!--<h2 v-bind:class="{claa1:true, class2:false}">{{message}}</h2>-->
+    <h2 v-bind:class="{active:true, no_active:false}">{{message}}</h2>
+    <h2 class="title" v-bind:class="{active:is_activie}">{{message}}</h2>
+    <button v-on:click="btnClick">改变</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            is_activie: false,
+
+        },
+        methods: {
+            btnClick: function () {
+
+                this.is_activie = !this.is_activie;
+                /*this.is_no_activie = !this.is_no_activie;*/
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

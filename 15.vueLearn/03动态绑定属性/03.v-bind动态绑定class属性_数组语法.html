@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .title {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--通过v-bind绑定class，使用数组语法绑定-->
+    <!--运行程序打开开发者，查看当前元素styke是3个-->
+    <!--缺点：写死的、没法动态 ,不过数组中可以写变量，vue会取data里面解析变量，使用变量去掉单引号即可-->
+    <h2 class="title" v-bind:class="['active','line' ]">{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        }
+    });
+
+
+</script>
+</body>
+</html>

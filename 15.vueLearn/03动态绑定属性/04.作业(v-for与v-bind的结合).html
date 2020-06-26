@@ -6,9 +6,10 @@
 </head>
 <body>
 <div id="app">
-    <h2>{{message}}</h2>
-    <!--使用v-html直接解析标签字符串内容-->
-    <h2 v-html="url1"></h2>
+    <ul>
+        <!--使用v-for来遍历数组中的内容-->
+        <li v-for="m in movies">{{m}}</li>
+    </ul>
 </div>
 
 <script src="../js/vue.js"></script>
@@ -16,11 +17,9 @@
     const app = new Vue({
         el: "#app",
         data: {
-            message: "Hello World",
-            url1: "<a href='http://www.baidu.com'>服务器返回的数据</a>"/*假如这个时服务器返回的数据*/
+            movies: ['电影1', '电影2', '电影3', '电影4', '电影5']
         }
     });
-
 
 
 </script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--使用v-bind,来动态绑定src的属性值-->
+    <!--v-bind可以省略，直接使用：即可，语法糖提供了-->
+    <img v-bind:src="imageUrl" />
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            imageUrl:"http://www.beijing.gov.cn/images/sdzc_logo_ch_20190909.png"
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
