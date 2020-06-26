@@ -7,8 +7,8 @@
 <body>
 <div id="app">
     <h2>{{message}}</h2>
-    <!--使用v-once修饰的元素，后续修改无效，相当于final，就是一个简单的标记式指令-->
-    <h2 v-once>{{message}}</h2>
+    <!--使用v-html直接解析标签字符串内容-->
+    <h2 v-html="url1"></h2>
 </div>
 
 <script src="../js/vue.js"></script>
@@ -17,9 +17,10 @@
         el: "#app",
         data: {
             message: "Hello World",
-
+            url1: "<a href='http://www.baidu.com'>服务器返回的数据</a>"/*假如这个时服务器返回的数据*/
         }
     });
+    /*TODO:P13 08:36   V_TEXT*/
 
 
 </script>
