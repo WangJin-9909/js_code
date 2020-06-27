@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04.事件绑定</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //给按钮添加绑定事件
+            $("#btn1").click(function () {
+                alert("按钮发生点击事件");
+            });
+            $("#btn2").click(function () {
+               $("#div1").css("background", "red")
+            });
+        });
+
+    </script>
+    <style>
+        .container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+    </style>
+
+</head>
+<body class="container">
+<div id="div1">div1...</div>
+<div id="div2">div2...</div>
+<input type="button" value="点我" id="btn1"/>
+<input type="button" value="设置div1背景" id="btn2"/>
+<hr/>
+<h4>window,onload 与 $(function)区别</h4>
+<ol>
+    <li>window.onload 只能设置一次，其本质是给成员变量赋值</li>
+    <li>jq提供的$()可以设置多次</li>
+    <li>jq提供了css方法来设置样式style</li>
+</ol>
+
+</body>
+</html>

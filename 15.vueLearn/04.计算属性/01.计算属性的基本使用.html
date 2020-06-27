@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--通过方法显示名字全称-->
+    <h2>{{getFullName()}}</h2>
+    <!--通过计算属性来实现-->
+    <!--在Vue中添加conputed变量-->
+    <!--下面是字段，由Vue实例对象中的计算属性字段里的相应方法实现，不需要加()-->
+    <h2>{{FullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            firstName: "firstName T",
+            lastName: "lastName T"
+        },
+        methods: {
+            getFullName: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        },
+        /*下面字段内声明计算属性的方法*/
+        computed: {
+            FullName: function () {
+                return this.firstName + " " + this.lastName + "由计算属性实现";
+            }
+
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

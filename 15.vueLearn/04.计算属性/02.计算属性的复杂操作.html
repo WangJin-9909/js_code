@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h4>书的总价格</h4>
+    <h2>{{totalPrice}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            books: [
+                {id: 110, name: "Unix编程-1", price: 119},
+                {id: 111, name: "Unix编程-2", price: 120},
+                {id: 112, name: "Unix编程-3", price: 132},
+                {id: 113, name: "Unix编程-4", price: 122},
+                {id: 114, name: "Unix编程-5", price: 123}
+
+            ]
+        },
+        computed: {
+            totalPrice: function () {
+                var price = 0;
+                /*for (var i = 0; i < this.books.length; i++) {
+                    price += this.books[i].price;
+                }*/
+                //ES6的语法实现
+                for(let book of this.books){
+                    price += book.price;
+                }
+
+
+                return price;
+            }
+
+
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

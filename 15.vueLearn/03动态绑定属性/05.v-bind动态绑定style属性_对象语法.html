@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--使用对象绑定style属性-->
+    <!--使用对象的方式来绑定-->
+    <h2 :style="{color:'red'}">{{message}}</h2>
+    <!--将value设置为变量值-->
+    <h2 :style="{fontSize: finalSize, color: finalColor}">{{message}}</h2>
+    <button v-on:click="font_bigger()">增大</button>
+    <button v-on:click="font_smaller()">减小</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            finalSize: '40px',
+            size:50,
+            finalColor:'red'
+        },
+        methods:{
+            font_bigger: function () {
+                this.size++;
+                this.finalSize = "";
+                this.finalSize = this.size + "px";
+            },
+            font_smaller:function () {
+                this.size--;
+                this.finalSize = "";
+                this.finalSize = this.size + "px";
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

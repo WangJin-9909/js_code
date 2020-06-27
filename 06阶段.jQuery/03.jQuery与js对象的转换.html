@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery与js对象的转换</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        window.onload = function (ev) {
+            //1.获取div元素对象的集合
+            var divs = document.getElementsByTagName("div");
+            //2.通过jQ方式获取
+            var $divs = $("div");//使用元素选择器
+
+            //----------
+            alert("原生js获取长度 ： " + divs.length);
+            alert("jq获取长度 ：  " + $divs.length)
+            //使用jq全部改写
+            $divs.html("更改后的内容");
+
+            //------------
+            //js与jq方法不通用，js与jq的转换
+            //1.js转jq  $(js对象)
+            //2.jq转js  jq对象【索引】  或者调用get()方法，传入索引
+            $divs.get(0).innerHTML = "0986432";
+            $divs[1].innerHTML =  "1234567"
+
+        }
+
+    </script>
+
+</head>
+<body>
+<div id="div1">div1...</div>
+<div id="div2">div2...</div>
+</body>
+</html>
