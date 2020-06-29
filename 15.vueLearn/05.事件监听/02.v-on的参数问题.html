@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--1.方法没有参数不带括号的情况-->
+    <button @click="btn1Click">按钮1</button>
+    <!--2.方法没有参数带有括号的情况-->
+    <button @click="btn2Click()">按钮2</button>
+    <!--3.需要传递一个参数的情况，这里传递字符串 -->
+    <button @click="btn3Click('123a')">按钮3</button>
+    <!--情况4：事件监听时候，系统自动传递系统事件对象作为参数传递，不需要加括号-->
+    <button @click="btn4Click">按钮4</button>
+    <!--情况5：需要传递事件对象(系统自动传默认)，这里需要手动传递，传递$event即可，还需要传递其它参数-->
+    <button @click="btn5Click(123, $event)">按钮5</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        methods: {
+            btn1Click() {
+                alert("情况1  方法没有参数不带括号的情况");
+            },
+            btn2Click() {
+                alert("情况2  方法没有参数带有括号的情况");
+            },
+            btn3Click(value) {
+                alert("情况3  方法没有参数带有括号的情况   接收的参数是 " + value);
+            },
+            btn4Click(value) {
+                alert("情况4  方法没有参数带有括号的情况   接收的参数是 " + value);
+            },
+            btn5Click(value, event) {
+                alert("情况5  方法没有参数带有括号的情况"   + "\n 接收的参数1 是 " + value + "\n 接收的参数2 是 " + event);
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app" @click="divClick">
+    <!--1.stop修饰符-->
+    <!--阻止冒泡事件的方法，使用.stop修饰，来禁止事件向上传递-->
+    <button @click.stop="btnClick">btnClick</button>
+    <br/>
+    <!--2.prevent修饰符-->
+    <form>
+        <!--阻止下面按钮的自动提交-->
+        <input type="submit" value="submit" @click.prevent.stop="submitClick()"/>
+    </form>
+    <br/>
+    <!--3.监听键盘点击,，可以用来监听Enter-->
+    输入内容
+    <input type="text" value="" @click.stop="" @keyup="keyUp"/><br/>
+    输入内容,输完内容之后请按回车
+    <input type="text" value="" @click.stop="" @keyup.enter="keyUpEnter"/><br/>
+
+    <!--4.once修饰符,只响应第一次点击效果-->
+    <button @click.once="btnClickOnce">btnClick</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        methods: {
+            divClick() {
+                alert("divClick");
+            },
+            btnClick() {
+                alert("btnClick");
+            },
+            submitClick() {
+                alert("阻止默认事件使用手动提交");
+            },
+            keyUp(e) {
+                alert("输入完一个字符 : " + e.key)
+                console.dir(e);
+            },
+            keyUpEnter(e) {
+                console.dir(e);
+            },
+            btnClickOnce() {
+                alert("只响应第一次效果 ！ ")
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

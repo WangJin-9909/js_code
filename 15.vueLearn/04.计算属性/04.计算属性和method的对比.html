@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--对应视频P24-->
+<div id="app">
+    <!--第一种方案：直接拼接，效果不好，一般不适用-->
+    <!--第二种：通过定义method，多次调用多次执行，没有缓存机制-->
+    <!--第三种：通过计算属性，会观察待计算的有没有变化，有则重新计算，没有变化不会调用-->
+
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--对应P23-->
+<div id="app">
+    <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            firstName: "wang",
+            lastName: "Jin"
+        },
+        computed:{
+            fullName:{
+                get:function () {
+                    return this.firstName + "  " + this.lastName + " by   计算属性的set方法"
+                },
+                set:function () {
+                    /*一般情况下不适用set方法*/
+                }
+            },
+            //或者直接使用下面的方法，没有set，同事省略的get关键字
+            /*fullName:function () {
+                return this.firstName + "  " + this.lastName + " by   计算属性的set方法"
+            }*/
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
