@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h2 v-if="isShow">{{message}}</h2>
+    <h1 v-else>{{message_f}}</h1>
+
+    <button @click="change_flag">改变flag</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "条件满足",
+            message_f: "条件不满足",
+            isShow: true
+
+        },
+        methods: {
+            change_flag() {
+                this.isShow = !this.isShow;
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

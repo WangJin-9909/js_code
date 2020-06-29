@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <span v-if="type == 'username'">
+        <label>用户名：</label>
+        <input type="text" placeholder="用户名"/>
+    </span>
+    <span v-else>
+        <label>邮箱地址：</label>
+        <input type="text" placeholder="邮箱地址"/>
+    </span>
+    <button @click="handleToggle">切换登录方式</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            type:"username"
+        },
+        methods:{
+            handleToggle(){
+                console.log("type = " + this.type);
+               this.type =  this.type == "username" ? "email" : "username";
+            }
+        }
+
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <!--v-if:使用boolean值-->
+    <!--使用v-if控制显示-->
+    <h2 v-if="true">{{message}}</h2>
+    <!--使用v-if控制不显示-->
+    <h2 v-if="false">{{message}}</h2>
+    <!--使用变量控制-->
+    <h2 v-if="is_show">{{message}}</h2>
+
+    <button @click="btnHide" value="">隐藏</button><span/><span/>
+    <button @click="btnShow" value="">显示</button>
+
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            is_show: true
+        },
+        methods: {
+            btnHide() {
+                this.is_show = false;
+            },
+            btnShow() {
+                this.is_show = true;
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

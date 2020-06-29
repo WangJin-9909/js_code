@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p v-if="score >= 90">score大于90</p>
+    <p v-else-if="score >= 80">score大于80</p>
+    <p v-else-if="score >= 70 && score <= 80">score在70与80之间</p>
+    <p v-else-if="score >= 60 && score <= 70">score在60与70之间</p>
+    <p v-else>score小于60</p>
+
+    <button @click="add_ten">改变数值</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            score: 55
+        },
+        methods:{
+            add_ten(){
+                this.score += 10;
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
