@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+<div id="app">
+    <div v-if="books.length > 0">
+        <table>
+            <thead>
+            <!--tr表示行-->
+            <tr>
+                <th></th>
+                <th>书籍名称</th>
+                <th>出版日期</th>
+                <th>价格</th>
+                <th>购买数量</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item, index ) in books">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.beginDate}}</td>
+                <!--第一种格式化商品价格的方式-->
+                <!--<td>${{item.price.toFixed(2)}}</td>-->
+                <!--第二种格式化商品价格的方式-->
+                <!--<td>{{getFinalPrice(item.price)}}</td>-->
+                <!--第三种：使用过滤器，过滤器定义在Vue对象中-->
+                <td>${{item.price | showPrice}}</td>
+                <td>
+                    <button @click="minus(index)" :disabled="item.count <= 1">-</button>
+                    {{item.count}}
+                    <button @click="add(index)">+</button>
+                </td>
+                <td>
+                    <button @click="removeHandl(index)">移除</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>总价格：{{TotalPrice}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2 v-else>购物车为空</h2>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

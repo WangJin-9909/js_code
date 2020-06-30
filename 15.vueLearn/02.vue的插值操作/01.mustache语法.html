@@ -7,10 +7,12 @@
 <body>
 <div id="app">
     <h2>Hello {{name}}</h2>
-    <h2>{{firstName}}  {{lastName}}</h2>
+    <h2>{{firstName}} {{lastName}}</h2>
     <!--mustache中可以写变量，而且还可以写简单的表达式-->
-    <h2>mustache中使用简单表达式   {{firstName +"  :   "+ lastName}}</h2>
+    <h2>mustache中使用简单表达式 {{firstName +" : "+ lastName}}</h2>
     <h2>{{counter * 2}}</h2>
+    <!--mustache中可以直接调用Vue实例中的函数-->
+    <h2>{{nameF()}}</h2>
 </div>
 
 <script src="../js/vue.js"></script>
@@ -19,10 +21,15 @@
         el: "#app",
         data: {
             message: "Hello World",
-            name:"VueJs",
-            lastName:"Jin",
-            firstName:"wang",
-            counter:100
+            name: "VueJs",
+            lastName: "Jin",
+            firstName: "wang",
+            counter: 100
+        },
+        methods: {
+            nameF() {
+                return "函数返回的字符串"
+            }
         }
     });
 

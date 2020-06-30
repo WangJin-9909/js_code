@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--使用v-show也同样可以控制是否显示-->
+<div id="app">
+    <!--使用v-if和v-show控制是否显示的区别：-->
+    <!--v-if：控制是否加载当前标签来来控制显示-->
+    <!--isShow：控制display属性来达到是否控制显示-->
+    <h2 v-if="isShow"> {{message}}</h2>
+    <h2 v-show="isShow"> {{message}}</h2>
+    <button @click="changeToggle()">切换显示</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            isShow: true
+
+        }
+        ,
+        methods: {
+            changeToggle() {
+                this.isShow = !this.isShow;
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

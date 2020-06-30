@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--使用v-for遍历对象-->
+    <!--1.直接遍历对象-->
+    <ul>
+        <li v-for="item in info">{{item}}</li>
+    </ul>
+    <!--2.遍历对象的子项，字段在（）里面是按照顺序，包含key和value-->
+    <ul>
+        <li v-for="(value, 键值) in info">{{键值}} : {{value}}</li>
+    </ul>
+
+    <!--3.遍历对象的子项，包含index、key、value-->
+    <ul>
+        <li v-for="(value, 键值, index) in info">{{index}} ...{{键值}} : {{value}}</li>
+    </ul>
+
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            info: {
+                name: "wangJin",
+                age: 27,
+                height: 170
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

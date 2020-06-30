@@ -8,11 +8,11 @@
 <div id="app">
     <span v-if="type == 'username'">
         <label>用户名：</label>
-        <input type="text" placeholder="用户名"/>
+        <input type="text" placeholder="用户名" key="key1"/><!--key标识不一样，则不会复用该组件-->
     </span>
     <span v-else>
         <label>邮箱地址：</label>
-        <input type="text" placeholder="邮箱地址"/>
+        <input type="text" placeholder="邮箱地址" key="key2"/><!--key标识不一样，则不会复用该组件-->
     </span>
     <button @click="handleToggle">切换登录方式</button>
 </div>
@@ -22,12 +22,12 @@
     const app = new Vue({
         el: "#app",
         data: {
-            type:"username"
+            type: "username"
         },
-        methods:{
-            handleToggle(){
+        methods: {
+            handleToggle() {
                 console.log("type = " + this.type);
-               this.type =  this.type == "username" ? "email" : "username";
+                this.type = this.type == "username" ? "email" : "username";
             }
         }
 
