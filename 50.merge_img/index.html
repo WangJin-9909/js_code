@@ -19,10 +19,11 @@
         .content {
             width: 60%;
             height: 400px;
-            margin: 0 auto;
+            /*margin: 0 auto;*/
             position: relative;
             /*margin-left: 400px;*/
-            background-color: #f00;
+            /*background-color: #f00;*/
+            background-color: rgba(0, 0, 0, 0);
         }
 
         .content img {
@@ -35,7 +36,7 @@
             display: block;
             width: 300px;
             height: 200px;
-            background-color: #0f0;
+            background-color: rgba(0, 0, 0, 0);
         }
 
         .bottom {
@@ -48,58 +49,171 @@
     </style>
 
     <script>
+        var piece = 0;//图片块数量
+        var sequence = "";
+
+        function handle_10picee(context, image) {
+            console.log("处理10块图片");
+            console.log("piece = " + piece);
+            console.log("sequence = " + sequence);
+            //1.将图片按照10个块划分显示到Canvas
+            for (var i = 0; i < piece; i++) {
+            //var i = 0;
+            // var index = sequence.charAt(i) / 2;
+            //des
+            var index =  Math.floor(sequence.charAt(i) / 2);
+            var des_x = 60 * index;
+            var des_y = (sequence.charAt(i) % 2) * 100;
+            //src
+            var src_x = Math.floor(i / 2 ) * 60;
+            var src_y = (i % 2 )* 100;
+
+            context.drawImage(image, src_x, src_y, 60, 100, des_x, des_y, 60, 100);
+            console.log("index = " + index  + "   des_x = " + des_x + "   des_y = " + des_y);
+
+
+            /* if(i < 5){
+                 //横着画
+                 context.drawImage(image, 0, 0, 60, 100, 60 * sequence.charAt(i),0, 60, 100);
+             }else{
+                 //横着画
+                 context.drawImage(image, 0, 0, 60, 100, 60 * (sequence.charAt(i) - 5), 100, 60, 100);
+             }*/
+
+
+            console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
+            // console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
+
+            }
+
+
+        }
+
+        function handle_8picee(context, image) {
+            console.log("处理8块图片");
+            console.log("piece = " + piece);
+            console.log("sequence = " + sequence);
+            //1.将图片按照10个块划分显示到Canvas
+            for (var i = 0; i < piece; i++) {
+                if (i < 4) {
+                    //横着画
+                    context.drawImage(image, 0, 0, 60, 100, 60 * i, 0, 60, 100);
+                } else {
+                    //横着画
+                    context.drawImage(image, 0, 0, 60, 100, 60 * (i - 5), 100, 60, 100);
+                }
+
+                console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
+            }
+
+        }
+
+        function handle_6picee(context, image) {
+            console.log("处理6块图片");
+            console.log("piece = " + piece);
+            console.log("sequence = " + sequence);
+            //1.将图片按照10个块划分显示到Canvas
+            for (var i = 0; i < piece; i++) {
+                if (i < 3) {
+                    //横着画
+                    context.drawImage(image, 0, 0, 60, 100, 60 * i, 0, 60, 100);
+                } else {
+                    //横着画
+                    context.drawImage(image, 0, 0, 60, 100, 60 * (i - 5), 100, 60, 100);
+                }
+
+                console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
+            }
+
+        }
+
+        function handle_4picee(context, image) {
+            console.log("处理4块图片");
+            console.log("piece = " + piece);
+            console.log("sequence = " + sequence);
+            //1.将图片按照10个块划分显示到Canvas
+            for (var i = 0; i < piece; i++) {
+                if (i < 2) {
+                    //横着画
+                    context.drawImage(image, 0, 0, 60, 100, 60 * i, 0, 60, 100);
+                } else {
+                    //横着画
+                    context.drawImage(image, 0, 0, 60, 100, 60 * (i - 5), 100, 60, 100);
+                }
+
+                console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
+            }
+
+        }
 
 
         function merage2() {
-
-
-            var canvas = document.createElement("canvas");
-            //var canvas = $("#canvasT")[0];
+            //var canvas = document.createElement("canvas");
+            var canvas1 = $("#canvas2")[0];
+            var canvas = $("#canvasT")[0];
             canvas.width = 300;
             canvas.height = 200;
             var context = canvas.getContext("2d");
+            var context1 = canvas1.getContext("2d");
             context.rect(0, 0, canvas.width, canvas.height);
             context.fillStyle = "#fff";
             context.fill();
             var imgage = new Image();
+
             //imgage.src = "img/demo_modify.png";
             imgage.src = "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet?param=point_canvas_lump";
+
             //发请求获取
-          /*  $.ajax({
-                type: 'get',
-                url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
-                data: {
-                    param: "point_canvas_lump"
-                },
-                timeout: 5000,
-                success: function (res) {
-                    alert("res = " + res);
-                    imgage.src = res;
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("获取参数信息失败");
-                }
-            });*/
+            /*  $.ajax({
+                  type: 'get',
+                  url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
+                  data: {
+                      param: "point_canvas_lump"
+                  },
+                  timeout: 5000,
+                  success: function (res) {
+                      alert("res = " + res);
+                      imgage.src = res;
+                  },
+                  error: function (XMLHttpRequest, textStatus, errorThrown) {
+                      alert("获取参数信息失败");
+                  }
+              });*/
 
 
             imgage.onload = function () {
                 console.log("图片宽度：" + imgage.width + "    图片高度" + imgage.height);
+                console.log("图片块数量 ： " + piece);
 
 
-                context.drawImage(imgage, 0, 0, 179, 97, 0, 0, 179, 97);
-                context.drawImage(imgage, 278, 0, 125, 119, 180, 0, 125, 119);
-                var base64 = canvas.toDataURL("image/png"); //"image/png" 这里注意一下
-                var img = document.getElementById('avatar');
+                switch (piece) {
+                    case 10:
+                        handle_10picee(context, imgage);
+                        break;
+                    case 8:
+                        handle_8picee(context, imgage);
+                        break;
+                    case 6:
+                        handle_6picee(context, imgage);
+                        break;
+                    case 4:
+                        handle_4picee(context, imgage);
+                        break;
 
-                img.setAttribute('src', base64);
+                }
+
+                //context.drawImage(imgage, 0, 0, 179, 97, 0, 0, 179, 97);
+                //context.drawImage(imgage, 278, 0, 125, 119, 180, 0, 125, 119);
+
+
+                //----------------------------
+                //var base64 = canvas.toDataURL("image/png"); //"image/png" 这里注意一下
+                //var img = document.getElementById('avatar');
+                context1.drawImage(imgage, 0, 0);
             };
 
 
-            context.drawImage(imgage, 0, 0, 150, 200);
-            var base64 = canvas.toDataURL("image/png"); //"image/png" 这里注意一下
-            var img = document.getElementById('avatar');
-
-            img.setAttribute('src', base64);
+            // context.drawImage(imgage, 0, 0, 150, 200);
 
 
         }
@@ -109,6 +223,7 @@
 
             $("#btn_merge").click(function () {
                 merage2()
+
             });
 
             $("#btn_get_params").click(function () {
@@ -121,7 +236,10 @@
                     },
                     timeout: 5000,
                     success: function (res) {
-                        alert("获取参数信息成功 ： " + res.split("||")[0].length);
+                        //获取图片被拆分了几块,最大数量为10，最小为4
+                        console.log("图片数量 ： " + res.split("||")[0].length);
+                        sequence = res.split("||")[0];
+                        piece = res.split("||")[0].length;
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         alert("获取参数信息失败");
@@ -138,8 +256,12 @@
 <body>
 <div class="title">图片合成Demo</div>
 <div class="content">
-    <img src="" id="avatar"/>
+    <!--<img src="" id="avatar"/>-->
     <canvas id="canvasT" width="400" height="300"></canvas>
+
+</div>
+<div>
+    <canvas id="canvas2" width="400" height="300"></canvas>
 </div>
 
 
@@ -151,6 +273,10 @@
     <!--<button id="btn_merge">合成</button>-->
 
     <!--<button id="btn_merge_3">从网络合成图片</button>-->
+
+    <!--1.先点击原测试页获取打碎的图片-->
+    <!--2.在点击新得测试页获点击请求参数-->
+    <!--3.点击合成-->
 
 </div>
 
