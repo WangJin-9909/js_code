@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--v-model通常配合表单一起使用-->
+    <!--为输入控件中的v-modle给定一个变量，这样输入控件input和变量message就形成了双向绑定,两个值会一起改变的-->
+    <input type="text" v-model="message" placeholder="请输入内容"><br/><br/><br/>
+    <label>v-model绑定后的内容</label><br/><br/>
+    {{message}}
+
+
+    <br/><br/>
+    <button @click="change_message()">改变message</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        methods: {
+            change_message() {
+                this.message = "改变后的message内容";
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
