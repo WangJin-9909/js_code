@@ -58,31 +58,31 @@
             console.log("sequence = " + sequence);
             //1.将图片按照10个块划分显示到Canvas
             for (var i = 0; i < piece; i++) {
-            //var i = 0;
-            // var index = sequence.charAt(i) / 2;
-            //des
-            var index =  Math.floor(sequence.charAt(i) / 2);
-            var des_x = 60 * index;
-            var des_y = (sequence.charAt(i) % 2) * 100;
-            //src
-            var src_x = Math.floor(i / 2 ) * 60;
-            var src_y = (i % 2 )* 100;
+                //var i = 0;
+                // var index = sequence.charAt(i) / 2;
+                //des
+                var index = Math.floor(sequence.charAt(i) / 2);
+                var des_x = 60 * index;
+                var des_y = (sequence.charAt(i) % 2) * 100;
+                //src
+                var src_x = Math.floor(i / 2) * 60;
+                var src_y = (i % 2) * 100;
 
-            context.drawImage(image, src_x, src_y, 60, 100, des_x, des_y, 60, 100);
-            console.log("index = " + index  + "   des_x = " + des_x + "   des_y = " + des_y);
-
-
-            /* if(i < 5){
-                 //横着画
-                 context.drawImage(image, 0, 0, 60, 100, 60 * sequence.charAt(i),0, 60, 100);
-             }else{
-                 //横着画
-                 context.drawImage(image, 0, 0, 60, 100, 60 * (sequence.charAt(i) - 5), 100, 60, 100);
-             }*/
+                context.drawImage(image, src_x, src_y, 60, 100, des_x, des_y, 60, 100);
+                console.log("index = " + index + "   des_x = " + des_x + "   des_y = " + des_y);
 
 
-            console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
-            // console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
+                /* if(i < 5){
+                     //横着画
+                     context.drawImage(image, 0, 0, 60, 100, 60 * sequence.charAt(i),0, 60, 100);
+                 }else{
+                     //横着画
+                     context.drawImage(image, 0, 0, 60, 100, 60 * (sequence.charAt(i) - 5), 100, 60, 100);
+                 }*/
+
+
+                console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
+                // console.log("正在处理 " + sequence.charAt(i) + "   i = " + i);
 
             }
 
@@ -230,7 +230,7 @@
                 //先请求解析参数
                 $.ajax({
                     type: 'get',
-                    url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
+                    url: "https://192.168.0.100:8443/TestHttpProtocolNew/BehaviorServlet",
                     data: {
                         param: "point_canvas_params"
                     },
@@ -248,6 +248,32 @@
             });
 
 
+            $("#btn_merge_new").click(function () {
+                //先请求图片
+                merage2();
+
+                //赶紧请求图片参数
+
+                $.ajax({
+                    type: 'get',
+                    url: "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet",
+                    data: {
+                        param: "point_canvas_params"
+                    },
+                    timeout: 5000,
+                    success: function (res) {
+                        //获取图片被拆分了几块,最大数量为10，最小为4
+                        console.log("图片数量 ： " + res.split("||")[0].length);
+                        sequence = res.split("||")[0];
+                        piece = res.split("||")[0].length;
+                        console.log("图片参数是： " + sequence);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("获取参数信息失败");
+                    }
+                });
+            });
+
         });
     </script>
 
@@ -257,6 +283,7 @@
 <div class="title">图片合成Demo</div>
 <div class="content">
     <!--<img src="" id="avatar"/>-->
+
     <canvas id="canvasT" width="400" height="300"></canvas>
 
 </div>
@@ -266,6 +293,8 @@
 
 
 <div class="bottom">
+    <button id="btn_get_pic">请求图片</button>
+
     <button id="btn_get_params">获取请求参数</button>
     <button id="btn_merge">合成</button>
 
@@ -278,6 +307,9 @@
     <!--2.在点击新得测试页获点击请求参数-->
     <!--3.点击合成-->
 
+
+    <!--新的合成接口-->
+    <button id="btn_merge_new">新的合成接口</button>
 </div>
 
 </body>
