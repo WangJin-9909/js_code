@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        var sequence = "";
+        var serverUrl = 'https://192.168.0.100:8443/TestHttpProtocolNew/BehaviorServlet';//服务器地址
+        $(function () {
+            $("#btn_merge").click(function () {
+                merage();
+            });
+        });
+
+
+        function merage() {
+            var canvas = $("#canvasT")[0];
+            canvas.width = 300;
+            canvas.height = 200;
+            var context = canvas.getContext("2d");
+            context.rect(0, 0, canvas.width, canvas.height);
+            context.fillStyle = "#fff";
+            context.fill();
+            var imgage = new Image();
+            //imgage.src = "https://192.168.0.100:8443/TestHttpProtocolNew/TestServlet?param=point_canvas_lump";
+            imgage.src = "https://192.168.0.100:8443/TestHttpProtocolNew/BehaviorServlet?param={%22captchaType%22:%22point_image%22,%22timeStamp%22:%222020-07-06T06:06:12.691Z%22}";
+            //获取图片参数
+            $.ajax({
+                type: 'get',
+                url: serverUrl + '?param=' + JSON.stringify({
+                    captchaType: 'point_image_seq',
+                    timeStamp: new Date()
+                }),
+                timeout: 5000,
+                success: function (res) {
+                    //alert("res = " + res);
+                    sequence = res;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                }
+            });
+
+            imgage.onload = function () {
+                /*var canvas2 = $("#canvas2")[0];
+                canvas2.width = 300;
+                canvas2.height = 200;
+                var context2 = canvas2.getContext("2d");
+                context2.rect(0, 0, canvas2.width, canvas2.height);
+                context2.fillStyle = "#fff";
+                context2.fill();
+                context2.drawImage(imgage, 0, 0);*/
+
+
+                console.log("图片宽度：" + imgage.width + "    图片高度" + imgage.height + "图片顺序 : " + sequence);
+                for (var i = 0; i < 10; i++) {
+                    console.log("-------------------------");
+                    console.log("正在处理 第" + i + "  应该摆放在  " + sequence.charAt(i));
+                    //des 根据sequence决定
+                    var des_x = Math.floor(sequence.charAt(i) / 2) * 60;
+                    var des_y = (sequence.charAt(i) % 2) * 100;
+                    //src，根据当前 i 决定
+                    var src_x = Math.floor(i / 2) * 60;
+                    var src_y = (i % 2) * 100;
+                    context.drawImage(imgage, src_x, src_y, 60, 100, des_x, des_y, 60, 100);
+                    console.log("des_x = " + des_x + "   des_y = " + des_y);
+                    console.log("src_x = " + src_x + "   src_y = " + src_y);
+                }
+
+            };
+
+
+        }
+
+    </script>
+
+</head>
+<body>
+<button id="btn_merge">合成</button>
+<canvas id="canvasT" width="400" height="300"></canvas>
+<canvas id="canvas2" width="400" height="300"></canvas>
+</body>
+</html>
