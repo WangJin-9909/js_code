@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--1.选择一个,请注意v-model的位置-->
+    <select v-model="fruit">
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="菠萝">菠萝</option>
+        <option value="茄子">茄子</option>
+    </select>
+    选择的水果：{{fruit}}
+
+    <br/><br/><br/>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            fruit: ""
+        }
+    });
+
+
+</script>
+</body>
+</html>
