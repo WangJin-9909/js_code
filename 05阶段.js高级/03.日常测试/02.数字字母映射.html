@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        /**
+         * 将字符串转换为字母,10以上转换，10-a,11-b
+         * 37ae8g95fhi6j1cbd204
+         */
+        function apphaToNum(alpha) {
+            var length = alpha.length;
+            var result = new Array(length);
+            for (var i = 0; i < length; i++) {
+                if (alpha.charAt(i) < 10) {
+                    result[i] = alpha.charAt(i);
+                }
+                else {
+                    switch (alpha.charAt(i)) {
+                        case 'a':
+                            result[i] = 10;
+                            break;
+                        case 'b':
+                            result[i] = 11;
+                            break;
+                        case 'c':
+                            result[i] = 12;
+                            break;
+                        case 'd':
+                            result[i] = 13;
+                            break;
+                        case 'e':
+                            result[i] = 14;
+                            break;
+                        case 'f':
+                            result[i] = 15;
+                            break;
+                        case 'g':
+                            result[i] = 16;
+                            break;
+                        case 'h':
+                            result[i] = 17;
+                            break;
+                        case 'i':
+                            result[i] = 18;
+                            break;
+                        case 'j':
+                            result[i] = 19;
+                            break;
+                    }
+                }
+            }
+            return result;
+        }
+
+        $(function () {
+
+            $("#btn_test").click(function () {
+                var arr = apphaToNum("37ae8g95fhi6j1cbd204");
+                console.log("arr = " + arr.length);
+                for(var i = 0; i < arr.length; i++){
+                    console.log("arr = " + arr[i]);
+                }
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+<button id="btn_test">测试</button>
+
+</body>
+</html>
