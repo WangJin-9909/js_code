@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--cpn1组件被当作子组件注册在cpn2这个父组件里面了，因此不会显示-->
+    <cpn1></cpn1>
+    <hr/>
+    <cpn2>
+        <cpn1></cpn1>
+    </cpn2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    /*1.创建第一个组件*/
+    const cpnC1 = Vue.extend({
+        template: `
+        <div>
+            <h2>模板1</h2>
+        </div>
+        `
+    });
+    /*2.创建第二个组件*/
+    const cpnC2 = Vue.extend({
+        template: `
+        <div>
+            <h2>模板2</h2>
+        </div>
+        `,
+        /*在组件中注册子组件，被注册的组件为子组件，当前组件称为父组件*/
+        comments:{
+            cpn1:cpnC1
+        }
+    });
+
+
+
+
+
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        /*2.注册组件*/
+        components:{
+
+            cpn2:cpnC2
+        }
+    });
+
+
+</script>
+</body>
+</html>

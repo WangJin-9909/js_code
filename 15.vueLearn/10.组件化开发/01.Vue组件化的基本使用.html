@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    //ES6新语法支持``支持定义字符串，支持换行定义【Tab上面的】
+
+    /*1.创建组件构造器对象，默认为全局组件*/
+    const conC = Vue.extend({
+        /*固定属性：表示模板*/
+        template: `
+        <div>
+            <h2>模板</h2>
+            <h4>模板内容</h4>
+        </div>
+        `
+    });
+    /*2.注册组件：参数1为标签名，参数2为构造器(即第一步创建的)*/
+    Vue.component("my-cpn", conC);
+
+
+    /*3.使用组件,见上面代码,需要配合下面创建的实例对象*/
+    const app = new Vue({
+        el: "#app",
+        data: {}
+    });
+
+
+</script>
+</body>
+</html>

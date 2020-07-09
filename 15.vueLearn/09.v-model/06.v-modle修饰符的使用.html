@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--1.第一个修饰符：lazy：回车和离开焦点再绑定内容-->
+    <!--默认双向绑定，message内容随着input输入的内容随时改变，改变频率高-->
+    <input type="text" v-model="message">
+    <!--针对于用户输完的场景，再改变v-modle变量-->
+    <input type="text" v-model.lazy="message">
+    {{message}}<br/><br/><br/><br/>
+    <!--2.第二个修饰符：numben：希望用户输入数字-->
+    <input type="number" v-model.number="number_value">
+    {{number_value}}-{{typeof number_value}}<br/><br/><br/><br/>
+    <!--3.第三个修饰符：trim：消除左右空格-->
+    <input type="text" v-model.trim="string_value">
+    {{string_value}}
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World",
+            number_value: 0,
+            string_value:""
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
