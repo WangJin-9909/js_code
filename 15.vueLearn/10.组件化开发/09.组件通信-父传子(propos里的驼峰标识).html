@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--将父组件中的info传递给子组件的cinfo,使用v-bind绑定即可-->
+    <!--这里要注意：v-bind不支持驼峰标识，需要使用-小写字母替换-->
+    <cpn :c-info="info"></cpn>
+</div>
+
+<script src="../js/vue.js"></script>
+<!--定义组件-->
+<template id="cpn">
+    <div>
+        <ul>
+            <!--使用v-for遍历cinfo对象即可-->
+            <li v-for="item in cInfo">{{item}}</li>
+
+        </ul>
+    </div>
+</template>
+<script>
+
+    /*声明组件中使用的data对象*/
+    const cpn = {
+        //声明该组件使用的模板
+        template: "#cpn",
+        props: {
+            cInfo: {
+                type: Object,
+                default() {
+                    return {
+                        name: "默认姓名",
+                        age: "默认年龄",
+                        height: "默认身高"
+                    }
+                },
+                required: true
+            }
+        }
+    };
+
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            //父组件中的对象，即属性
+            //下面将父组件中的内容传递给子组件
+            info: {
+                name: "张三",
+                age: 22,
+                height: 177
+            }
+        },
+        //注册局部组件
+        components: {
+            cpn: cpn
+        }
+    });
+
+
+</script>
+</body>
+</html>

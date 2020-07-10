@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <hr/>
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    /*注册全局组件的语法糖*/
+    Vue.component("my-cpn", {
+        template: `
+        <div>
+            <h2>使用语法糖注册全局组件</h2>
+        </div>
+        `
+    });
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        components:{
+            cpn1:{
+                template:`
+                <div>
+                    <h2>使用语法糖注册局部组件</h2>
+                </div>
+                `
+            }
+        }
+    });
+
+
+
+
+</script>
+</body>
+</html>

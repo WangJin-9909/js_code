@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <!--！！！父组件使用v-on监听子组件发出的事件-->
+    <!--<cpn v-on:itemClick="itemClick"></cpn>-->
+    <!--使用简写的方式-->
+    <!--这里理解成事件转发，事件转发过程中不用处理参数信息,这里要区别于浏览器的事件对象-->
+    <cpn @itemclick="cpnClick"></cpn>
+</div>
+
+<script src="../js/vue.js"></script>
+<!--创建子组件模板元素-->
+<template id="cpn">
+    <div>
+        <ul>
+            <button v-for="item in categories" @click="btnClick(item)">{{item.name}}</button>
+        </ul>
+    </div>
+
+</template>
+<script>
+    //子组件
+    const cpn = {
+        //指定模板元素
+        template: '#cpn',
+        /*子组件的数据*/
+        data() {
+            return {
+                categories: [
+                    {id: 1001, name: "热门推荐"},
+                    {id: 1002, name: "手机数码"},
+                    {id: 1003, name: "家用家电"},
+                    {id: 1004, name: "电脑办公"}
+                ]
+            }
+        },
+        methods: {
+            btnClick(item) {
+                /*！！！！通过发射自定义事件将数据发送给父组件,c参数为事件名称itemClick，后面的参数为事件的参数*/
+                //子组件发射事件，父组件接收事件
+                this.$emit("itemclick", item)
+            }
+        }
+
+    };
+    //父组件
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        //注册子元素
+        components: {
+            cpn: cpn
+        },
+        methods: {
+            cpnClick(item) {
+                alert("子组件发来的条目id" + item.id);
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

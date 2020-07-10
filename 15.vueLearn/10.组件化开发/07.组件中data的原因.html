@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+</div>
+
+<script src="../js/vue.js"></script>
+<template id="cpn">
+    <div>
+        <h2>当前计数</h2>
+        <button @click="minus">-</button>
+        <label>{{counter}}</label>
+        <button @click="add">+</button>
+    </div>
+</template>
+<script>
+    const  obj = {
+        counter:10
+    };
+
+    /*注册全局组件*/
+    Vue.component('cpn', {
+        template:"#cpn",
+        data(){
+            return obj;/*{
+                counter:0
+            }*/
+        },
+        methods:{
+            add(){
+                this.counter++;
+            },
+            minus(){
+                this.counter--;
+            }
+
+        }
+    });
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        }
+    });
+
+
+</script>
+</body>
+</html>

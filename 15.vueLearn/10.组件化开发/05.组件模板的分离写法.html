@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <cpn></cpn>
+    <hr/>
+    <cpn_te></cpn_te>
+</div>
+
+<script src="../js/vue.js"></script>
+<!--第一种注册分离组件的方式：使用text/x-template来注册Vue组件-->
+<script type="text/x-template" id="cpn">
+    <div>
+        <h2>使用text/x-template来注册分离组件</h2>
+        {{title}}
+    </div>
+</script>
+<!--第二种注册分离组件的方式：template-->
+<script type="template" id="cpn_template">
+    <div>
+        <h2>x-template来注册分离组件</h2>
+    </div>
+</script>
+<script>
+
+    /*注册全局组件*/
+    //分离方式一：将模板写到body下
+    Vue.component('cpn', {
+        //使用分离方式注册组件，为template赋值id即可
+        template: '#cpn',
+        /*组件中的变量特殊方式，不同于Vue的实例哦*/
+        data(){
+            return {
+                title:"标题"
+            }
+        }
+
+    });
+    Vue.component('cpn_te', {
+        //使用分离方式注册组件，为template赋值id即可
+        template: '#cpn_template',
+
+    });
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        }
+    });
+
+
+</script>
+</body>
+</html>

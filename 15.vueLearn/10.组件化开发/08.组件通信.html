@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--使用v-bind绑定子组件使用了父组件的movies变量-->
+    <cpn v-bind:cmovies="movies" :cmessage="message"></cpn>
+</div>
+
+<script src="../js/vue.js"></script>
+<template id="cpn">
+    <div>
+        <ul>
+            <li v-for="item in cmovies">{{item}}</li>
+        </ul>
+
+        {{cmovies}}
+        <hr/>
+
+        {{cmessage}}
+    </div>
+</template>
+<script>
+    /*父组件通过props将内容传递给子组件*/
+    const cpn = {
+        template: '#cpn',
+        /*子组件中需要定义props，内容为存放变量的数组，数组元素为接收父组件传递过来的内容*/
+        //props: ['cmovies', 'cmessage'],
+        //props:{}也可以接收对象
+        //props:{}也可以接收String、Number、Boolean、Array、Object、Date、Function、Symbol、自定义类型等
+        props:{
+            cmovies:{//阶段后的而第一个值
+                type:Array,//标记类型为Array
+                default:'',//设置默认值
+                required:true//表示必须传递该值
+            },
+            //cmessage为接收的第二个值
+            cmessage:'',//String :规定类型，''直接赋值默认值
+
+        }
+    };
+    const app = new Vue({
+        el: "#app",
+        data: {
+            //定义在父组件中的内容
+            message: "Hello World",
+            movies: ['电影一', '电影二', '电影三', '电影四']
+
+        },
+        /*声明子组件*/
+        components: {
+            /*先不使用属性对象增强写法*/
+            cpn: cpn
+        }
+    });
+</script>
+</body>
+</html>
