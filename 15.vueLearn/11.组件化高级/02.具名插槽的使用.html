@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn>
+        <!--默认只替换没有名字的插槽-->
+        <!--<h3>第一个具名插槽</h3>-->
+        <h3 slot="center">替换内容</h3>
+    </cpn>
+</div>
+
+<script src="../js/vue.js"></script>
+<!--声明组件模板-->
+<template id="cpn">
+    <div>
+        <h2>具名插槽</h2>
+        <p>使用具名插槽</p>
+        <slot name="left">左边</slot>
+        <slot name="center">中间</slot>
+        <slot name="right">右边</slot>
+    </div>
+
+</template>
+<script>
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        /*注册局部组件*/
+        components: {
+            cpn: {
+                template: "#cpn"
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

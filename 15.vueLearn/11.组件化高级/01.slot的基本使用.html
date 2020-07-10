@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn>
+        <!--此处编写插入插槽的代码-->
+        <button>button</button>
+    </cpn>
+    <cpn>
+        <!--此处编写插入插槽的代码-->
+        <button><h2>第二个使用插槽的组件</h2></button>
+    </cpn>
+    <cpn>
+        <!--此处编写插入插槽的代码-->
+        <h3 style="color: red">第三个使用插槽的组件</h3>
+    </cpn>
+    <cpn>
+        <!--此处编写插入插槽的代码-->
+        <h4 style="color: green">第四个使用插槽的组件</h4>
+    </cpn>
+    <cpn>
+
+    </cpn>
+</div>
+
+<script src="../js/vue.js"></script>
+<template id="cpn">
+    <div>
+        <h2>组件</h2>
+        <h4>slot的基本使用</h4>
+        <!--使用slot标签给组件预留了一个空间，给组件增加了扩展性-->
+        <!--具体插槽放什么，需要在使用的地方放置-->
+        <slot><h1>第五个插槽，默认的内容，使用方没有传递内容，将显示默认插槽内容</h1></slot>
+    </div>
+</template>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        //局部注册组件
+        components: {
+            cpn: {
+                template: '#cpn'
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
