@@ -12,24 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="01.slot的基本使用.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11.组件化高级/01.slot的基本使用.html">
+      <file leaf-file-name="04.作用域插槽的案例.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/11.组件化高级/04.作用域插槽的案例.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-              <folding>
-                <element signature="n#style#0;n#h3#0;n#cpn#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#cpn#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="380">
+              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="02.具名插槽的使用.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/11.组件化高级/02.具名插槽的使用.html">
+      <file leaf-file-name="10.组件通信-子传父(字定义事件).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/10.组件化开发/10.组件通信-子传父(字定义事件).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+            <state relative-caret-position="114">
+              <caret line="21" column="84" selection-start-line="21" selection-start-column="84" selection-end-line="21" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -48,8 +44,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/03动态绑定属性/02.v-bind动态绑定class属性_对象语法_绑定到method里.html" />
-        <option value="$PROJECT_DIR$/03动态绑定属性/03.v-bind动态绑定class属性_数组语法.html" />
         <option value="$PROJECT_DIR$/03动态绑定属性/04.作业(v-for与v-bind的结合).html" />
         <option value="$PROJECT_DIR$/03动态绑定属性/05.v-bind动态绑定style属性_对象语法.html" />
         <option value="$PROJECT_DIR$/03动态绑定属性/06.v-bind动态绑定style属性_数组语法.html" />
@@ -95,10 +89,12 @@
         <option value="$PROJECT_DIR$/10.组件化开发/09.组件通信-父传子(propos里的驼峰标识).html" />
         <option value="$PROJECT_DIR$/10.组件化开发/10.组件通信-子传父(字定义事件).html" />
         <option value="$PROJECT_DIR$/README.html" />
-        <option value="$PROJECT_DIR$/READ.html" />
         <option value="$PROJECT_DIR$/11.组件高级化/01.slot的基本使用.html" />
         <option value="$PROJECT_DIR$/11.组件化高级/01.slot的基本使用.html" />
         <option value="$PROJECT_DIR$/11.组件化高级/02.具名插槽的使用.html" />
+        <option value="$PROJECT_DIR$/11.组件化高级/03.什么是编译作用域.html" />
+        <option value="$PROJECT_DIR$/READ.html" />
+        <option value="$PROJECT_DIR$/11.组件化高级/04.作用域插槽的案例.html" />
       </list>
     </option>
   </component>
@@ -128,7 +124,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,6 +146,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -256,12 +252,13 @@
       <workItem from="1594258726612" duration="8000" />
       <workItem from="1594282433547" duration="7403000" />
       <workItem from="1594342185000" duration="15417000" />
-      <workItem from="1594382600421" duration="2440000" />
+      <workItem from="1594382600421" duration="4378000" />
+      <workItem from="1594461961555" duration="3292000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75518000" />
+    <option name="totallyTimeSpent" value="80748000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -274,7 +271,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32946146" />
@@ -306,17 +302,17 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2078125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32946146" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -328,7 +324,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info id="Favorites" order="6" side_tool="true" />
@@ -341,20 +337,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/03动态绑定属性/04.作业(v-for与v-bind的结合).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03动态绑定属性/03.v-bind动态绑定class属性_数组语法.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/03动态绑定属性/03.v-bind动态绑定class属性_对象语法_绑定到method里.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -631,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/READ.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/10.组件化开发/04.组件的语法糖注册方式.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-216">
@@ -656,13 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/10.组件化开发/10.组件通信-子传父(字定义事件).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="21" column="84" selection-start-line="21" selection-start-column="84" selection-end-line="21" selection-end-column="84" />
         </state>
       </provider>
     </entry>
@@ -689,7 +657,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/11.组件化高级/01.slot的基本使用.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="684">
           <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#h3#0;n#cpn#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -700,8 +668,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/11.组件化高级/02.具名插槽的使用.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="506">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11.组件化高级/03.什么是编译作用域.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/READ.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/10.组件化开发/10.组件通信-子传父(字定义事件).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="21" column="84" selection-start-line="21" selection-start-column="84" selection-end-line="21" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11.组件化高级/04.作用域插槽的案例.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>

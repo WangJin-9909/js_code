@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn></cpn>
+    <cpn>
+        <!--1.替换插槽，在父组件中使用插槽，但使用子组件的数据进行展示-->
+        <template slot-scope="slot">
+            <span v-for="item in slot.data">&nbsp;&nbsp;{{item}}-</span>
+        </template>
+    </cpn>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<template id="cpn">
+    <div>
+        <!--2.通过插槽绑定将数据暴露出去-->
+        <slot :data="pLanuages">
+            <ul>
+                <li v-for="item in pLanuages">{{item}}</li>
+            </ul>
+        </slot>
+
+    </div>
+</template>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello World"
+        },
+        components: {
+            cpn: {
+                template: "#cpn",
+                data() {
+                    return {pLanuages: ['JavaScript', 'Java', 'C++', 'Kotlin']}
+                }
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
