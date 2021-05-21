@@ -1,0 +1,1 @@
+java -jar icbc-compiler.jar --js_output_file=behavior.min.js aes.js canvas.js crypto_api.js DES3.js jquery.base64.js json2.js mousetrack.js navigatorfinger.js  pointCaptcha.js sensor.js  sha1.js sha256.js sliceCaptcha.js sm4.js windowfinger.js

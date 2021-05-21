@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var b = document.createElement("b")
+            b.wangjin = true;
+            b.innerText = "测试自定义属性";
+            $("#div_1").append(b);
+
+            $("#btn_test").click(function () {
+                console.log(b.wangjin);
+            });
+
+
+            function removeself(t) { //删除自己
+                $(t).remove()
+            }
+
+
+            $("#bt").click(function () {
+                alert(1);
+                $(this).remove();
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+
+<div id="div_1" style="width: 100px; height: 100px"></div>
+
+<button id="btn_test">测试</button>
+
+
+<div class='jzh' ondblclick='removeself(this)' style='border-bottom: 1px solid blue; '>删除自己</div>
+
+<span id="bt" value="删除自己">删除自己</span>
+</body>
+</html>

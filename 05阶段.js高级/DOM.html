@@ -3,23 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-        window.onscroll = function (ev) {
-            console.log("onscroll...............");
-            console.log("滑动距离： document.body.scrollTop =" + document.body.scrollTop);
-            console.log("滑动距离： document.documentElement.scrollTop = " + document.documentElement.scrollTop);
-            console.log("滑动距离： window.pageYOffset = " + window.pageYOffset);
 
-        };
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("#btn_1").click(function () {
+                console.log("+++++++++++++++++++++++++");
+
+                //$("#h1").css("display", "none");
+                //$("h1").parent().css("background", "#ff0");
+                $("h1").parent().css("display", "none");
+
+            });
+
+            $("#btn_2").click(function () {
+
+                $("#div_1").append();
+                var i = document.createElement("img")
+
+            });
+
+        });
 
     </script>
     <style>
-        body{
+        body {
             height: 1000000px;
         }
     </style>
+
 </head>
 <body>
+<button id="btn_1">按钮</button>
+<button id="btn_2">向div_1中插入新的标签</button>
+
+<div id="div_1">
+    <h1 id="h1">Test</h1>
+    <h2>2345678</h2>
+    <h2>2345678</h2>
+    <h2>2345678</h2>
+    <h2>2345678</h2>
+    <h2>2345678</h2>
+</div>
 
 </body>
 </html>
