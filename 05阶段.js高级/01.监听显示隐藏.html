@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>事件监听测试</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: #CCC;
+			border: 1px solid #999;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="checkbox" name="checkbox" onmouseout="div1.style.display='none';" onmouseover="div1.style.display='block';">获得焦点测试</input>
+	<div id="div1">checkbox获得焦点</div>
+</body>
+</html>

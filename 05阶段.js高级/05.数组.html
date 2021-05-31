@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>05.数组</title>
+	<script type="text/javascript">
+		//定义 一个数组
+		//var arr = [1, 2. 3];
+		var arr = new Array(1, 2, 3， 4， 5，6， 7， 8， 9);
+		//向数组中添加内容
+		arr.push(10);
+		alert(arr.length);
+		//从数组中删除顶层元素
+		arr.pop();
+		//从头部删除元素
+		arr.shift();
+		//在头部添加元素
+		arr.unshift(9);
+		//从中间添加删除元素
+		arr.splice(2, 3);//从第二个位置，删除3个元素
+		arr.splice(2, 0, 'a', 'b', 'c');//从中间插入三个元素，参数2表示先删除，在增加后面的元素
+		//数组连接
+		var arr_1 = [7, 8, 9];
+		arr.contact(arr_1);//数组连接数组
+		//数组元素之间增加连接符
+		arr.join("-");
+		//排序
+		arr.sort();//进行数组排序，主要是对字符串进行排列
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

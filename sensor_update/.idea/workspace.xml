@@ -13,53 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sensor_update.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/sensor_update.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2565">
-              <caret line="135" selection-start-line="135" selection-end-line="135" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sensor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/sensor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_ios.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_ios.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="62" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="first_sensor_update.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/first_sensor_update.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -72,6 +26,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>orientation</find>
+      <find>console</find>
+      <find>btn_start</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -82,10 +38,10 @@
       <list>
         <option value="$PROJECT_DIR$/js/1sensor_update.js" />
         <option value="$PROJECT_DIR$/js/two_sensor_update.js" />
-        <option value="$PROJECT_DIR$/js/sensor_update.js" />
         <option value="$PROJECT_DIR$/js/sensor.js" />
-        <option value="$PROJECT_DIR$/test_ios.html" />
+        <option value="$PROJECT_DIR$/js/sensor_update.js" />
         <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/test_ios.html" />
       </list>
     </option>
   </component>
@@ -99,10 +55,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-257" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="1244" />
+    <option name="y" value="194" />
+    <option name="width" value="1300" />
+    <option name="height" value="1100" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -110,7 +66,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -127,15 +83,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../icbc-captcha" />
+    <property name="last_opened_file_path" value="D:/03.workspace/project/clone" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -221,15 +177,29 @@
       <workItem from="1588685038966" duration="4573000" />
       <workItem from="1588813086518" duration="1744000" />
       <workItem from="1589004654068" duration="329000" />
+      <workItem from="1607309555051" duration="3115000" />
+      <workItem from="1607508757790" duration="1436000" />
+      <workItem from="1607585744940" duration="1577000" />
+      <workItem from="1607652648394" duration="1574000" />
+      <workItem from="1607668835821" duration="11000" />
+      <workItem from="1608017513304" duration="10464000" />
+      <workItem from="1608195857513" duration="155000" />
+      <workItem from="1608523587643" duration="611000" />
+      <workItem from="1608696417721" duration="632000" />
+      <workItem from="1608702796402" duration="379000" />
+      <workItem from="1608721476275" duration="186000" />
+      <workItem from="1609144672030" duration="523000" />
+      <workItem from="1619489504318" duration="631000" />
+      <workItem from="1619505560410" duration="3150000" />
+      <workItem from="1619579718459" duration="699000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28787000" />
+    <option name="totallyTimeSpent" value="53930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -267,6 +237,55 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test_ios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/first_sensor_update.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/sensor_update.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2565">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/sensor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_ios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/first_sensor_update.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1216">
+          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/sensor_update.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2565">
@@ -536,38 +555,38 @@
     <entry file="file://$PROJECT_DIR$/js/jquery-1.12.4.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/sensor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/first_sensor_update.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="-418">
           <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/sensor_update.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2565">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/sensor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_ios.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="62" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="62" />
+        <state relative-caret-position="3135">
+          <caret line="165" column="4" selection-start-line="165" selection-start-column="4" selection-end-line="165" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+        <state relative-caret-position="646">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_ios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="107" column="47" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="47" />
         </state>
       </provider>
     </entry>

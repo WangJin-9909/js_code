@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>08.面向对象</title>
+	<!-- 1.基本使用 -->
+	<!-- <script type="text/javascript">
+		var a = 12;
+		alert(a);
+		var arr = [1, 2, 3,4 ,5];
+		//为某个对象自定义属性
+		arr.a = 7;
+		alert(arr.a);
+		//为某个对象自定义方法
+		arr.show = function(){
+			alert(this);
+		};
+		arr.show();
+
+		function show(){
+			alert(this);
+
+		}
+		show();
+	</script> -->
+	<!-- 2.自定义对象 -->
+	<!-- <script type="text/javascript">
+		var obj = new Object();
+		//使用obj对象
+		obj.name = "blue";
+		obj.qq = "12345";
+		obj.showName = function(){
+			alert(this.name);
+		}
+
+		obj.showName();
+
+	</script> -->
+	<!-- 3.使用原型概念给已存在的类添加方法 -->
+	<!-- <script type="text/javascript">
+		//使用原型概念给已存在的类添加方法
+		Date.prototype.wangJin = function(){
+			alert("wangJin");
+		}
+		new Date().wangJin();
+
+		function Test(){
+			alert("test" + this);
+		}
+		new Test();
+	</script> -->
+	<!-- 4.定义类 -->
+	<script type="text/javascript">
+		//1.定义一个类
+
+		function AClass(){
+
+		}
+		//2.为类添加静态方法
+		AClass.staticMethod = function(){
+			alert("类的静态方法");
+		}
+		//通过类命调用静态方法
+		AClass.staticMethod();
+		//3.为类添加实例方法
+		AClass.prototype.instanceMethod = function() {
+			alert("类的实例方法");
+		};
+		//调用类的实例方法
+		new AClass().instanceMethod();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

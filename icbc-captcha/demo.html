@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+	<title>验证码插件demo</title>
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	
+	<script type="text/javascript" src="js/pointCaptcha.min.js" ></script>
+	<script type="text/javascript" src="js/sliceCaptcha.min.js"></script>
+	<script type="text/javascript" src="js/mousetrack.min.js"></script>
+	<script type="text/javascript" src="js/sensor.min.js"></script>
+	<script type="text/javascript" src="js/navigatorfinger.min.js"></script>
+	<script type="text/javascript" src="js/windowfinger.min.js"></script>
+	<script type="text/javascript" src="js/DES3.js"></script>
+	<script type="text/javascript" src="js/sha256.js"></script>
+	<script type="text/javascript" src="js/jquery.base64.js"></script>
+	<!--[if IE]><script type="text/javascript" src="./js/json2.js"></script><![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="css/pointCaptcha.css">
+	<link rel="stylesheet" type="text/css" href="css/sliceCaptcha.css">
+</head>
+<body>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<h3>ICBC滑动验证码</h3>
+	<!-- <div align="center"> -->
+		<div id="sliceCaptcha"></div>
+	<!-- </div> -->
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<!--<h3>ICBC点选验证码</h3>
+	<div id="pointCaptcha"></div>-->
+	<br/>
+	<br/>
+	<br/>
+	<script>
+		//对应ie6 ie7浏览器不支持 window.console
+		if (!window.console) window.console = {log: function(){}, warn: function(){}, error: function(){}, info: function(){}};
+	</script>
+	<script>
+		var serverUrl = 'https://192.168.43.244:8443/TestHttpProtocolNew/BehaviorServlet';//服务器地址
+		var serverIPUrl = serverUrl /*+ 'IP'*/;
+		var useRealServer = true;//是否使用真服务器
+		var useCanvas = false;//是否使用Canvas
+		var useStream = true;//图片使用流的方式，或URL。
+		var useDES3 = useRealServer;//是否加密
+
+		var sliceClientID = 'aaaaaa';
+		var pointClientID = 'bbbbbb';
+		
+		function getClientID(){
+			if (useRealServer) {//是否使用真服务器
+				$.ajax({
+					type: 'get',
+					url: serverIPUrl,
+					data: '',
+					timeout: 5000,
+					success:function(ip){
+						console.log('ip='+ip);
+						sliceClientID = /*ip +*/ sliceClientID;
+						pointClientID = /*ip +*/ pointClientID;
+						createSliceCaptcha('sliceCaptcha');
+						createPointCaptcha('pointCaptcha');
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						alert('服务器请求 获取IP失败');
+						console.error('服务器请求 获取IP失败，错误码：' + XMLHttpRequest.status);
+						console.log(XMLHttpRequest);
+					}
+				});
+			} else {
+				createSliceCaptcha('sliceCaptcha');
+				createPointCaptcha('pointCaptcha');
+			}
+		}
+
+
+		function getRequest(type, url, data, successFunc, errorFunc){
+			console.log('发送请求：', type, url)
+			if (useRealServer) {//是否使用真服务器
+				$.ajax({
+					type: type,
+					url: url,
+					data: data,
+					timeout: 15000,
+					// crossDomain: true,
+					// dataType: 'jsonp',
+					success:function(data){
+						console.log('返回的数据：' + data);
+						successFunc(data);
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						console.log('服务器请求失败，错误码：' + XMLHttpRequest.status);
+						console.log(XMLHttpRequest);
+						errorFunc();
+					}
+				});
+			} else {//假服务器（本地数据 模仿网络请求）
+				if (type == 'get') {
+					var paramJSON = data.substr('param='.length);
+				} else if (type == 'post') {
+					var paramJSON = data.Data;
+				}
+				var paramObj = JSON.parse(paramJSON);
+				var type = paramObj.captchaType;
+				setTimeout(function (){
+					if (type == 'slice_data') {
+						var data = {
+							pointX: 82,
+							pointY: 82
+						}
+						paramObj_Slice.data = JSON.stringify(data);
+						paramObj_Slice.imageUrl = "bgimg/demo5.png";
+						paramObj_Slice.sliceImageUrl = "bgimg/demo5-2.png";
+						successFunc(JSON.stringify(paramObj_Slice));
+					} else if (type == 'slice_bgimage') {
+
+					} else if (type == 'slice_sliceimage') {
+
+					} else if (type == 'slice_canvas') {
+						var data = {};
+						data.pointX = paramObj.sliceW   + Math.round(Math.random() * (paramObj.width - paramObj.sliceW*2));
+						data.pointY = paramObj.sliceH/2 + Math.round(Math.random() * (paramObj.height - paramObj.sliceH));
+						paramObj_Slice.data = JSON.stringify(data);
+						successFunc(JSON.stringify(paramObj_Slice));
+					} else if (type == 'slice_check') {
+						var res = checkSlice(paramObj, JSON.parse(paramObj_Slice.data)) ? 'SUCCESS' : 'ERROR_1';
+						successFunc(res);
+					} else if (type == 'point_data') {
+						var data = {
+							pointArray: paramObj_Point.pointArray
+						}
+						paramObj_Point.data = JSON.stringify(data);
+						paramObj_Point.imageUrl = "bgimg/demo6.png";
+						paramObj_Point.msgImageUrl = "bgimg/demo6-2.png";
+						successFunc(JSON.stringify(paramObj_Point));
+					} else if (type == 'point_image') {
+
+					} else if (type == 'point_imagemsg') {
+
+					} else if (type == 'point_canvas') {
+						paramObj_Point.pointArray = [
+							{"isCheck":1,"pointX":178,"pointY":79, "txt":"地"},
+							{"isCheck":1,"pointX":88, "pointY":100,"txt":"月"},
+							{"isCheck":1,"pointX":224,"pointY":41, "txt":"戎"},
+							{"isCheck":0,"pointX":35, "pointY":173,"txt":"师"},
+							{"isCheck":1,"pointX":121,"pointY":150,"txt":"服"}
+						];
+						var wordW = 30;
+						var tempList = [];
+						for (var i = 0; i < paramObj_Point.pointArray.length; i++) {
+							var item = paramObj_Point.pointArray[i];
+							var Chong = true;//是否有重合
+							while(Chong) {//去重
+								item.pointX = wordW + Math.round(Math.random() * (paramObj.width - wordW*2));
+								item.pointY = wordW + Math.round(Math.random() * (paramObj.height - wordW*2));
+								for (var j = 0; j < i; j++) {
+									var itemJ = paramObj_Point.pointArray[j];
+									if (item.pointX >= itemJ.pointX-wordW &&
+											item.pointX <= itemJ.pointX+wordW &&
+											item.pointY >= itemJ.pointY-wordW &&
+											item.pointY <= itemJ.pointY+wordW) {
+										break;
+									}
+								}
+								if (j>=i) Chong = false;
+							}
+						}
+						var data = {
+							pointArray: paramObj_Point.pointArray
+						}
+						paramObj_Point.data = JSON.stringify(data);
+						successFunc(JSON.stringify(paramObj_Point));
+					} else if (type == 'point_check') {
+						var res = comparePos(paramObj.captchaInfo, paramObj_Point.pointArray);
+						successFunc(res ? 'SUCCESS' : 'ERROR_1');
+					}
+				}, 2000);
+			}
+		}
+		
+		/*
+		*下面是滑动验证码的调用示例
+		*/
+		var paramObj_Slice = {
+			"pointX": 82,//滑块抠图位置X， 后端画图时 pointX值不需要
+			"pointY": 82,//滑块抠图位置Y
+			"imageUrl":"bgimg/demo.jpeg",//背景图片URL
+			"sliceImageUrl":"bgimg/demo2.jpg"//滑块图片URL， 前端画图时 sliceImageUrl值不需要
+		};
+		var paramJSON_Slice = JSON.stringify(paramObj_Slice);//参数示例
+		//验证滑动位置 本地验证 模拟服务器校验用户滑动位置
+		function checkSlice(userData, serverData) {
+			if(parseInt(userData.left) < serverData.pointX + 10  &&
+				parseInt(userData.left) > serverData.pointX - 10 ) {
+				return true;
+			}
+			return false;
+		};
+		var sliceErrorNum = 0;
+		
+		function createSliceCaptcha(divID) {
+			var slice = new SliceCaptcha(divID, {
+				// mode: 'pop',//弹出式pop，固定fixed
+				bgWidth: 300,  //验证码背景图片的宽，宽度如果是'**%' 是相对于手机屏幕宽
+				bgHeight: 200, //验证码背景图片的高，高度如果是'**%' 是相对于宽度
+				barHeight: 24, //滑动条的高度
+				dragWidth: 34, //拖拽BTN的宽
+				dragHeight: 24,//拖拽BTN的高
+				dragBorderR: 12,//拖拽BTN的圆角半径
+				dragColor: '#9296db',//拖拽BTN的颜色
+				bgMarginW: 20,//图片边缘留白的宽度
+				barBgDistance: 5,//滑动条和验证框的距离
+				bgColor: '#eee4e4',//背景颜色
+				message: {//提示信息
+					loading: '加载中...',
+					checking: '正在验证 请稍等...',
+					tip: '按住滑块，拖动完成拼图',
+					seccess: '验证成功',
+					fail: '位置不正确',
+					forbidden: '操作异常',
+					error: '网络错误'
+				},
+				clientID: sliceClientID,//用于加密
+				useCanvas: useCanvas,//是否使用Canvas
+				cw: 60,//裁剪滑块的大小
+				ch: 60,
+				cRadius: 8,//裁剪滑块 耳朵的半径
+				cTransparency: 0.8,//裁剪区域的透明度 0~1，值越大区域越黑
+				useMixBlock: true,//是否使用混淆裁剪块
+				cMixTransparency: 0.4,//混淆裁剪块的透明度 0~1，值越大区域越黑
+				dragClip: true,//是否可以拖拽 裁剪滑块
+				blockStyle: [],//[1, 1, -1, 1],//滑块的样式，-1表示内凹 1表示外凸 0或其他表示不画耳朵
+				padding: 0,//滑块初始位置 距离左边缘的偏移
+				needAgainNum: 1,//用户验证失败几次，需要重新拉取数据
+				useDES3: useDES3,//是否使用3DES加密
+				requestData: function(param, successCallback, errorCallback, captchaObject) {//captchaObject是当前的验证码对象 用于调用验证码的函数
+					console.log('请求参数是：' + param);
+					
+					var paramObj = {
+						captchaType: useCanvas ? 'slice_canvas' : 'slice_data',
+						height: param.height,
+						width: param.width,
+						sliceW: param.cw,
+						sliceH: param.ch,
+						timeStamp: new Date()
+					}
+					
+					getRequest('get', serverUrl, 'param='+JSON.stringify(paramObj), function(data) {
+						if (!useCanvas) {
+							if (useStream) {//如果使用图片流的方式 这部分需要使用者定义
+								var obj = JSON.parse(data);
+								obj.imageUrl = serverUrl + '?param=' + JSON.stringify({captchaType: 'slice_bgimage', timeStamp: new Date()});
+								obj.sliceImageUrl = serverUrl + '?param=' + JSON.stringify({captchaType: 'slice_sliceimage', timeStamp: new Date()});
+								data = JSON.stringify(obj);
+							} else {
+								var obj = JSON.parse(data);
+								obj.imageUrl = "bgimg/demo5.png";
+								obj.sliceImageUrl = "bgimg/demo5-2.png";
+								data = JSON.stringify(obj);
+							}
+						} else {
+								var obj = JSON.parse(data);
+								obj.imageUrl = "bgimg/demo.jpeg";
+								data = JSON.stringify(obj);
+						}
+
+						successCallback(data);//data示例: '{"pointX":82,"pointY":82,"imageUrl":"bgimg/demo5.png","sliceImageUrl":"bgimg/demo5-2.png"}'
+					}, function(error){
+						errorCallback(error);
+					});
+					// setTimeout(function() {//此处可以改变滑块的耳朵
+					// 	captchaObject.setBlockStyle([-1, 1, -1, 1]);
+					// }, 5000)
+				},
+				sendData: function(resData, resCallback) {
+					var resObj = resData;
+					if (useDES3) resObj += '||slice_check';
+					// console.warn(resData.x);
+					console.log('向服务器提交数据如下：');
+					console.log(JSON.stringify(resObj));
+
+					getRequest('post', serverUrl, {Data: resObj}, function(res) {
+						resCallback(res);
+					}, function(){
+						//network error
+						resCallback('networkerror');
+					});
+				},
+				ready: function() {
+					console.log("ready，添加你自己的代码！");
+				},
+				checkResult: function(res) {
+					if (res == 'success') {
+						console.log("验证成功，添加你自己的代码！");
+					} else if (res == 'fail') {
+						// sliceErrorNum += sliceErrorNum + 1;
+						// if (sliceErrorNum > 3) {//失败3次之后 滑动验证码变成文字点选验证码
+						// 	slice.destroy();
+						// 	createPointCaptcha('sliceCaptcha');
+						// }
+						// console.log(slice);
+						console.log("验证失败，添加你自己的代码！");
+					} else if (res == 'forbid') {
+						console.log("被拒绝，添加你自己的代码！");//鼠标轨迹等验证不通过
+					} else {
+						console.log("未知错误，添加你自己的代码！");
+					}
+				}
+			});
+			console.log("滑动验证码版本：" + slice.getVersion());
+		}
+		
+		/*
+		*下面是文字点选验证码的调用示例
+		*/
+		var paramObj_Point = {
+			"imageUrl": "bgimg/demo.jpeg",//背景图片URL
+			"msgImageUrl": "bgimg/demo2.jpg",//提示信息图片URL， 前端画图时 msgImageUrl值不需要
+			"pointArray": [
+				{"isCheck":1,"pointX":178,"pointY":79,"txt":"地"},
+				{"isCheck":1,"pointX":88,"pointY":100,"txt":"月"},
+				{"isCheck":1,"pointX":224,"pointY":41,"txt":"戎"},
+				{"isCheck":0,"pointX":35,"pointY":173,"txt":"师"},
+				{"isCheck":1,"pointX":121,"pointY":150,"txt":"服"}
+			]
+		};
+		var paramJSON_Point = JSON.stringify(paramObj_Point);
+		
+		//比对坐标点 模拟服务器校验用户点选位置
+		function comparePos (checkPosArr, wordList) {
+			var j = 0;
+			var w = 20;
+			for(var i = 0; i < wordList.length; i++) {
+				if (wordList[i].isCheck == 0) continue;
+				if(!(parseInt(checkPosArr[j].x) + w > wordList[i].pointX &&
+					parseInt(checkPosArr[j].x) - w < wordList[i].pointX &&
+					parseInt(checkPosArr[j].y) + w > wordList[i].pointY &&
+					parseInt(checkPosArr[j].y) - w < wordList[i].pointY)) {
+					return false;
+				}
+				j++;
+			}
+			return true;
+		};
+		
+		function createPointCaptcha (divId) {
+			var point = new PointCaptcha(divId, {
+				// mode: 'pop',	//弹出式pop，固定fixed
+				bgWidth: 300, //验证码背景图片的宽，宽度如果是% 是相对于手机屏幕宽
+				bgHeight: 200,//验证码背景图片的高，高度如果是% 是相对于宽度
+				barHeight: 24,//提示栏的高度
+				bgMarginW: 20,//图片边缘留白的宽度
+				barBgDistance: 5,//滑动条和验证框的距离
+				bgColor: '#e4e4e4',//背景颜色
+				message: {
+					loading: '加载中...',
+					checking: '正在验证 请稍等...',
+					tip: '请顺序点击',//提示信息
+					seccess: '验证成功',
+					fail: '位置不正确',
+					forbidden: '操作异常',
+					error: '网络错误'
+				},
+				// tipCanvas: true,//提示点击的文字 是否使用Canvas，如果是按语序点击文字 设置为false
+				clientID: pointClientID,//用于加密
+				useCanvas: useCanvas,//是否使用Canvas
+				pointShape: 'circle',//点击标志的形状 circle square
+				pointH: 20,//点击标志的圆圈直径 或 方形边长
+				pointColor: '#1abd6c',//点击标志的颜色
+				wordProperty: {
+					textH: [20, 40],//最小/大文字高度
+					alpha: [0.7, 0.9],//最小/大文字透明度
+					rotate: [-Math.PI/2, Math.PI/2],//最小/大文字旋转角度
+					usefuzzy: false,//模糊
+					fontstyle: 'random',//是否斜体 oblique/normal/random随机
+					bold: 'normal',//是否粗体 bold/normal/random随机
+					fontfamily: ['microsoft yahei', 'arial'],//字体列表
+					colorMode: 'autoColor',//selectColor选择一种颜色 autoColor从背景颜色选取 gradientColor颜色渐变
+					selectColor: ['#FF0033', '#006699'],//colorMode=='selectColor'时有效，选取颜色列表
+					autoColor: [90, 90, 0]//colorMode=='autoColor'时有效，和背景颜色的差异
+					// gradientColor: {direction: 8, colorList: ['#FF00FF', '#FFFF00', '#00FF00']}//colorMode=='gradientColor'时有效，颜色渐变
+				},
+				needAgainNum: 1,//用户验证失败几次，需要重新拉取数据
+				useDES3: useDES3,//是否使用3DES加密
+				requestData: function(param, successCallback, errorCallback) {
+
+					var paramObj = {
+						captchaType: useCanvas ? 'point_canvas' : 'point_data',
+						height: param.height,
+						width: param.width,
+						timeStamp: new Date()
+					}
+					
+					getRequest('get', serverUrl, 'param='+JSON.stringify(paramObj), function(data) {
+						if (!useCanvas) {
+							if (useStream) {//如果使用图片流的方式 这部分需要使用者定义
+								var obj = JSON.parse(data);
+								obj.imageUrl = serverUrl + '?param=' + JSON.stringify({captchaType: 'point_image', timeStamp: new Date()});
+								obj.msgImageUrl = serverUrl + '?param=' + JSON.stringify({captchaType: 'point_imagemsg', timeStamp: new Date()});
+								data = JSON.stringify(obj);
+							} else {
+								var obj = JSON.parse(data);
+								obj.imageUrl = "bgimg/demo6.png";
+								obj.msgImageUrl = "bgimg/demo6-2.png";
+								data = JSON.stringify(obj);
+							}
+						} else {
+							var obj = JSON.parse(data);
+							obj.imageUrl = "bgimg/demo1.jpeg";
+							data = JSON.stringify(obj);
+						}
+
+						successCallback(data);
+					}, function(error){
+						errorCallback(error);
+					});
+				},
+				sendData: function(resData, callback) {
+					var resObj = resData;
+					if (useDES3) resObj += '||point_check';
+					console.log('向服务器提交数据如下：');
+					console.log(JSON.stringify(resObj));
+
+					getRequest('post', serverUrl, {Data: resObj}, function(res) {
+						callback(res);
+					}, function(error) {
+						//network error
+						callback('networkerror');
+					});
+				},
+				ready: function() {
+					console.log('ready，添加你自己的代码！');
+				},
+				checkResult: function(res) {
+					if (res == 'success') {
+						console.log('验证成功，添加你自己的代码！');
+						//......成功的后续操作
+					} else if (res == 'fail') {
+						console.log('验证失败，添加你自己的代码！');
+						//......失败的后续操作
+					} else if (res == 'forbid') {
+						console.log('被拒绝，添加你自己的代码！');//鼠标轨迹等验证不通过
+					} else {
+						console.log('未知错误，添加你自己的代码！');
+					}
+				}
+			});
+			
+			console.log("文字点选验证码版本：" + point.getVersion());
+		}
+		getClientID();
+	</script>
+</body>
+</html>

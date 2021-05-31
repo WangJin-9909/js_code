@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>06.定时器</title>
+	<script type="text/javascript">
+		window.onload = function(){
+		alert("打开开发者模式，使用Console查看");
+		var oBtn1 = document.getElementById("btn1");
+		var oBtn2 = document.getElementById("btn2");
+		var time1 = null;
+		oBtn1.onclick = function(){
+			//使用定时器,每间隔一段时间执行一次
+			time1 = setInterval(show, 1000);
+		}
+		oBtn2.onclick = function(){
+			clearInterval(time1);
+		}
+
+
+		var i = 0;
+		function show(){
+				
+			console.log("i = " + i++);
+		}
+		}
+
+	</script>
+</head>
+<body>
+	<input type="button" name="clearInterval" value="开启定时器" id="btn1" />
+	<input type="button" name="clearInterval" value="关闭定时器" id="btn2" />
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>07.Data对象</title>
+	<script type="text/javascript">
+		//1.创建Date对象
+		var oDate = new Date();
+		//alert("获取当前点钟 = " + oDate.getHours());
+		//alert("获取当前分钟 = " + oDate.getMinutes());
+		//alert("获取当前秒中 = " + oDate.getSeconds());
+		alert("获取当前年 = " + oDate.getFullYear());
+		alert("获取当前年 = " + (oDate.getMonth() + 1));
+		alert("获取当前日 = " + oDate.getDate());
+		alert("获取当前星期几 = " + oDate.getDay());
+		setInterval(function(){
+			var sTime = oDate.getHours() +":" +  oDate.getMinutes() + ":" +oDate.getSeconds();
+			console.log("当前时间 = " + sTime);
+
+		}, 1000);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

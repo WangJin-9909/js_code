@@ -6,12 +6,11 @@
     <!--<script src="js/first_sensor_update.js"></script>-->
     <script src="js/jquery-1.12.4.js"></script>
     <script src="js/sensor.js"></script>
-    <script src="js/sensor_update.js"></script>
+    <script src="js/sensor_update_20201215.js.js"></script>
     <style>
         .container {
             width: 85%;
             height: 300px;
-
             margin: 0 auto;
         }
     </style>
@@ -30,6 +29,7 @@
             $("#btn_get_version").click(function () {
                 var version = sensor_update.getChromeVersion();
                 console.log("version = " + version);
+                alert("version = " + version);
             });
 
 
